@@ -1,6 +1,9 @@
 # skn15-3rd-3team
 
 # 1. 팀 소개
+<div align="center">
+<img width="320" height="320" alt="Image" src="https://github.com/user-attachments/assets/34eb158f-413f-4f38-b1e4-6440ea6ae851" />
+
 
 | 기현택     | 권도원     | 유의정     | 이소정     | 이준원     | 한승희    |
 |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
