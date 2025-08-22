@@ -97,6 +97,10 @@ LangChain: RAG 체인 구축을 위한 프레임워크로, 문서 로드, 청크
 
 # 5. 수행결과
 
+## Vector DB
+| Collection    | Embedding     |
+| ---------- | ---------- |
+| <img width="600" height="300" alt="Image" src="https://github.com/user-attachments/assets/b77924a7-8c06-46e1-897d-e2baa56e0c69" /> | <img width="600" height="300" alt="Image" src="https://github.com/user-attachments/assets/6dc37fde-1434-450c-847e-9f1b7b1146cb" />  |
 
 
 # 6. 한 줄 회고
