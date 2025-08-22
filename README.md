@@ -2,7 +2,9 @@
 
 # 1. 팀 소개
 
-
+| 기현택     | 권도원     | 유의정     | 이소정     | 이준원     | 한승희    |
+| ---------- | ---------- | ---------- | ---------- | ---------- | ---------- |
+|[@mathplanet](https://github.com/mathplanet)|[@dowonk120](https://github.com/dowonk120)|[@ryu0ej](https://github.com/Rr-EJ)|[@leesojunghub](https://github.com/leesojunghub)|[@none-jun](https://github.com/none-jun)|[@seunghee-han](https://github.com/seunghee-han)|
 
 
 # 2. 프로젝트 기간
