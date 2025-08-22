@@ -63,7 +63,8 @@ LangChain: RAG 체인 구축을 위한 프레임워크로, 문서 로드, 청크
 
 
 # 4. 기술 스택
-### ✔️ Environment
+
+
 <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">
 <img src="https://img.shields.io/badge/Visual Studio Code-61DAFB?style=for-the-badge&logo=VisualStudioCode&logoColor=white">
@@ -71,10 +72,10 @@ LangChain: RAG 체인 구축을 위한 프레임워크로, 문서 로드, 청크
 <img src="https://img.shields.io/badge/PostgreSQL-0769AD?style=for-the-badge&logo=postgresql&logoColor=white">
 <img src="https://img.shields.io/badge/OpenAI-181717?style=for-the-badge&logo=openai&logoColor=white">
 <img src="https://img.shields.io/badge/langchain-1C3C3C?style=for-the-badge&logo=openai&logoColor=white">
-
-### ✔️ Communication
+<img src="https://img.shields.io/badge/RAG-FFCA28?style=for-the-badge&logo=rag&logoColor=white">
+<img src="https://img.shields.io/badge/vectordb-003545?style=for-the-badge&logo=vectordb&logoColor=white">
 <img src="https://img.shields.io/badge/Discord-02569B?style=for-the-badge&logo=Discord&logoColor=white">
-<img src="https://img.shields.io/badge/Notion-F7DF1E?style=for-the-badge&logo=notion&logoColor=black">
+
 <br/>
 <br/>
 
