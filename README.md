@@ -89,6 +89,12 @@ RAG 챗봇은 방대한 약관 문서에서 필요한 정보를 정확하게 찾
 |-----|-----|-----|-----|
 |PDF -> PyPDFLoader로 로드 -> RecursiveCharacterTextSplitter 문서 청크| OpenAIEmbeddings를 사용 -> 벡터로 변환 -> 보험사별 collection_name을 지정 -> PGVector에 저장 | EnsembleRetriever를 활용 -> 동시에 문서를 검색 -> 가장 관련성 높은 문서|LLM의 컨텍스트로 전달 -> 답변을 생성 -> 출처를 제공 |
 
+## Vector DB
+| Collection    | Embedding     |
+| ---------- | ---------- |
+| <img width="600" height="300" alt="Image" src="https://github.com/user-attachments/assets/b77924a7-8c06-46e1-897d-e2baa56e0c69" /> | <img width="600" height="300" alt="Image" src="https://github.com/user-attachments/assets/6dc37fde-1434-450c-847e-9f1b7b1146cb" />  |
+
+
 
 # 4. 기술 스택
 
@@ -119,10 +125,7 @@ RAG 챗봇은 방대한 약관 문서에서 필요한 정보를 정확하게 찾
 
 # 5. 수행결과
 
-## Vector DB
-| Collection    | Embedding     |
-| ---------- | ---------- |
-| <img width="600" height="300" alt="Image" src="https://github.com/user-attachments/assets/b77924a7-8c06-46e1-897d-e2baa56e0c69" /> | <img width="600" height="300" alt="Image" src="https://github.com/user-attachments/assets/6dc37fde-1434-450c-847e-9f1b7b1146cb" />  |
+
 
 
 # 6. 한 줄 회고
