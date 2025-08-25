@@ -165,12 +165,15 @@
 ### 연령별 추천
 
 * 20대
-<img width="732" height="860" alt="Image" src="https://github.com/user-attachments/assets/d7ec959d-4073-47c4-a363-b5cf76720fee" />
+
+<img width="1100" height="751" alt="Image" src="https://github.com/user-attachments/assets/6eb04024-738b-477f-8560-3dbe02202ddb" />
 
 * 40대
-<img width="732" height="860" alt="Image" src="https://github.com/user-attachments/assets/16cf193d-f601-4539-87dc-8436f290f9cc" />
+
+<img width="1071" height="754" alt="Image" src="https://github.com/user-attachments/assets/e6fc8763-70fb-48e5-b9bd-517e85a40c45" />
 
 * 특정 나이
+
 <img width="1440" height="685" alt="image" src="https://github.com/user-attachments/assets/ae4ee676-574a-4c32-8931-929ef851a7ce" />
 
 
