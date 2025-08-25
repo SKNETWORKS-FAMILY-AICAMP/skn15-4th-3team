@@ -163,6 +163,11 @@
 |<img width="1082" height="806" alt="Image" src="https://github.com/user-attachments/assets/a81b5bff-ec4a-4539-b00b-b1635d83bed8" />|<img width="1062" height="738" alt="Image" src="https://github.com/user-attachments/assets/daf83397-3f56-4829-bfda-24c3aa6ffce0" />|
 |-----|-----|
 
+* 신뢰성 확보 -> 근거 없는 답변을 금지하고, 자료 부재 시 보험사 공식 연락처·링크로 안내
+* 
+* 개인 맞춤 기반 추천 서비스 -> 사용자 특성(사고·과실·연령) 기반으로 비교·추천 근거를 구체적으로 제시
+
+
 ## Answer
 *전문 용어는 피하고, 누구나 이해할 수 있도록 쉽고 자세하게 설명하세요.
 
@@ -177,6 +182,26 @@
 *추천 시에는 그 이유(보장 범위, 특화 옵션, 지급 조건 등)를 구체적으로 설명하세요.
 
 *사용자 상황(사고 유형/과실/연령 등)을 반영해 차이점·추천 근거를 구체적으로 제시.
+
+## 성능 평가
+
+* 1차 Prompt
+
+|지표|수치|설명|
+|-----|-----|-----|
+|faithfulness|0.339|답변 충실도, 환각 방지|
+|answer_relevancy|0.171|답변의 질문 관련성|
+|nv_context_relevance|0.408|검색한 문서의 답변 관련성|
+
+
+* 2차 Prompt
+
+|지표|수치|설명|
+|-----|-----|-----|
+|faithfulness|0.392|답변 충실도, 환각 방지|
+|answer_relevancy|0.1497|답변의 질문 관련성|
+|nv_context_relevance|0.392|검색한 문서의 답변 관련성|
+
 
 
 
