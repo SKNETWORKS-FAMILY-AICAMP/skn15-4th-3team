@@ -241,7 +241,7 @@ st.title("운전자 보험 챗봇 서비스")
 
 # --- Environment ---
 # change
-OPENAI_API_KEY = ""
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     st.warning(
         "⚠️ OPENAI_API_KEY 환경변수가 설정되어 있지 않습니다. .env 또는 시스템 환경변수를 확인하세요."
