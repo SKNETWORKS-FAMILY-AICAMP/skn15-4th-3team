@@ -165,6 +165,8 @@
 |<img width="1082" height="806" alt="Image" src="https://github.com/user-attachments/assets/a81b5bff-ec4a-4539-b00b-b1635d83bed8" />|<img width="1062" height="738" alt="Image" src="https://github.com/user-attachments/assets/daf83397-3f56-4829-bfda-24c3aa6ffce0" />|
 |-----|-----|
 
+<img width="1058" height="877" alt="Image" src="https://github.com/user-attachments/assets/a0726b49-9072-4d6d-8eae-17097c40419e" />
+
 * 신뢰성 확보 -> 근거 없는 답변을 금지하고, 자료 부재 시 보험사 공식 연락처·링크로 안내
   
 * 개인 맞춤 기반 추천 서비스 -> 사용자 특성(사고·과실·연령) 기반으로 비교·추천 근거를 구체적으로 제시
