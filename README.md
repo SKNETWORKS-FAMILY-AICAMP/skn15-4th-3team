@@ -136,7 +136,7 @@
 
 
 ## Streamlit
-<img width="1905" height="1016" alt="Image" src="https://github.com/user-attachments/assets/5d27a1e3-3913-404e-89df-0bd4c77684ed" />
+<img width="1916" height="888" alt="Image" src="https://github.com/user-attachments/assets/6ada762b-6be4-45eb-8a1a-1469bcee3b9a" />
 
 
 ### 연령별 예시
