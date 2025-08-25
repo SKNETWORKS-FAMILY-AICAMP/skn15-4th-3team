@@ -123,14 +123,6 @@
 * 질의응답
   * LLM의 컨텍스트로 전달 -> 답변을 생성 -> 출처를 제공
 
-```mermaid
-graph TD
-    A[사용자 질문] --> B[EnsembleRetriever로 관련 문서 검색]
-    B --> C[PGVector (PostgreSQL)에서 벡터 검색]
-    C --> D[관련 문서 추출]
-    D --> E[LLM에 문서 컨텍스트 전달]
-    E --> F[GPT-4.1이 답변 생성]
-    F --> G[출처 포함된 응답 반환]
 
 
 
