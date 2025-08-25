@@ -201,7 +201,7 @@
 |지표|수치|설명|
 |-----|-----|-----|
 |faithfulness|0.392|답변 충실도, 환각 방지|
-|answer_relevancy|0.1497|답변의 질문 관련성|
+|answer_relevancy|0.497|답변의 질문 관련성|
 |nv_context_relevance|0.392|검색한 문서의 답변 관련성|
 
 
