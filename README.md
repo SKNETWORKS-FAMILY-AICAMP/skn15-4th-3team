@@ -141,26 +141,20 @@
 
 ### 연령별 예시
 
-* 30대
+* 20대
 
-<img width="1100" height="751" alt="Image" src="https://github.com/user-attachments/assets/6eb04024-738b-477f-8560-3dbe02202ddb" />
-
-* 40대
-
-<img width="1071" height="754" alt="Image" src="https://github.com/user-attachments/assets/e6fc8763-70fb-48e5-b9bd-517e85a40c45" />
+<img width="1142" height="766" alt="Image" src="https://github.com/user-attachments/assets/2e041c33-f606-4f63-ad56-922587400db7" />
 
 * 특정 나이
 
-<img width="1440" height="685" alt="image" src="https://github.com/user-attachments/assets/ae4ee676-574a-4c32-8931-929ef851a7ce" />
+<img width="1130" height="774" alt="Image" src="https://github.com/user-attachments/assets/8b28d610-76e5-4741-ac4b-737b296c24c9" />
 
 
 ### 상황별 예시
 
-* 횡단보도에서 무단횡단 보행자 사고
-<img width="1094" height="803" alt="Image" src="https://github.com/user-attachments/assets/b91b9abb-6565-4110-8153-c555f8e3aaaf" />
-<img width="1029" height="694" alt="Image" src="https://github.com/user-attachments/assets/4ec8e3d9-7886-46f4-b395-9343a9d57860" />
-<img width="1071" height="871" alt="Image" src="https://github.com/user-attachments/assets/4e50635f-1a7c-4cb6-9067-5db611d23ab3" />
-
+* 무단횡단 보행자 사고
+<img width="1156" height="692" alt="Image" src="https://github.com/user-attachments/assets/a6efe2bb-fd34-4f31-90dc-aaad292a4594" />
+<img width="1146" height="714" alt="Image" src="https://github.com/user-attachments/assets/8ac5ec5c-fae2-4fec-918f-9e3e3b92d7d7" />
 
 ## 프로젝트 확장성
 
