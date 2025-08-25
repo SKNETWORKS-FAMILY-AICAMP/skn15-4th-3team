@@ -158,6 +158,30 @@
 
 # 5. 수행결과
 
+## Prompt
+
+|<img width="1082" height="806" alt="Image" src="https://github.com/user-attachments/assets/a81b5bff-ec4a-4539-b00b-b1635d83bed8" />|<img width="1062" height="738" alt="Image" src="https://github.com/user-attachments/assets/daf83397-3f56-4829-bfda-24c3aa6ffce0" />|
+|-----|-----|
+
+## Answer
+*전문 용어는 피하고, 누구나 이해할 수 있도록 쉽고 자세하게 설명하세요.
+
+*답변은 질문에 대한 직접적인 내용만을 포함하며, 불필요한 서론이나 결론은 제외하세요.
+
+*제시된 '컨텍스트' 내의 정보만 사용하세요. 컨텍스트에 없는 내용은 절대로 지어내지 마세요.
+
+*컨텍스트에 없는 내용을 질문할 시, 모른다고 말하지말고 질문한 회사의 전화번호나 링크를 줘서 직접 내용을 탐색하도록 유도하세요.
+
+*비교할때는 차이점을 명확하게 구체적으로 설명하세요.
+
+*추천 시에는 그 이유(보장 범위, 특화 옵션, 지급 조건 등)를 구체적으로 설명하세요.
+
+*사용자 상황(사고 유형/과실/연령 등)을 반영해 차이점·추천 근거를 구체적으로 제시.
+
+
+
+
+
 ## Streamlit
 <img width="1905" height="1016" alt="Image" src="https://github.com/user-attachments/assets/5d27a1e3-3913-404e-89df-0bd4c77684ed" />
 
@@ -177,9 +201,12 @@
 <img width="1440" height="685" alt="image" src="https://github.com/user-attachments/assets/ae4ee676-574a-4c32-8931-929ef851a7ce" />
 
 
-### 상황별 추천
-<img width="729" height="866" alt="Image" src="https://github.com/user-attachments/assets/f0c87bd0-4a1f-48f9-9ce6-e8f8812e1ef9" />
-<img width="732" height="860" alt="Image" src="https://github.com/user-attachments/assets/16cf193d-f601-4539-87dc-8436f290f9cc" />
+### 상황별
+
+* 횡단보도에서 무단횡단 보행자 사고
+<img width="1094" height="803" alt="Image" src="https://github.com/user-attachments/assets/b91b9abb-6565-4110-8153-c555f8e3aaaf" />
+<img width="1029" height="694" alt="Image" src="https://github.com/user-attachments/assets/4ec8e3d9-7886-46f4-b395-9343a9d57860" />
+<img width="1071" height="871" alt="Image" src="https://github.com/user-attachments/assets/4e50635f-1a7c-4cb6-9067-5db611d23ab3" />
 
 
 ## 프로젝트 확장성
