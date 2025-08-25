@@ -70,7 +70,8 @@ body {
     min-width: 220px;
 }
 
-[data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3 {
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3 {
     color: #111827;
     font-weight: 600;
 }
@@ -107,6 +108,30 @@ body {
 }
 .stButton:nth-child(1) button:hover {
     background-color: #1e40af !important;
+}
+
+/* =====================
+   사이드바 닫혔을 때 전체 확장
+===================== */
+/* 1. 최상위 컨테이너에서 닫힌 사이드바 숨기기 */
+[data-testid="stAppViewContainer"] > [data-testid="stSidebar"][aria-expanded="false"] {
+    display: none !important;
+    width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* 2. 사이드바 다음 .main 영역 너비 100% */
+[data-testid="stAppViewContainer"] > [data-testid="stSidebar"][aria-expanded="false"] + .main {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+/* 3. .block-container 내부 콘텐츠 가득 채우기 */
+[data-testid="stAppViewContainer"] > [data-testid="stSidebar"][aria-expanded="false"] + .main .block-container {
+    max-width: none !important;
+    width: calc(100% - 4rem) !important;
+    margin: auto !important;
 }
 
 /* =====================
