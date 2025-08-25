@@ -142,7 +142,7 @@ body {
     padding: 1rem 1.2rem;
     margin-bottom: 1rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    max-width: 75%;
+    max-width: 100%;
     line-height: 1;
     font-size: 0.95rem;
     word-wrap: break-word;
