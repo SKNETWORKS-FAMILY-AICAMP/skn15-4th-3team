@@ -38,13 +38,6 @@
 
 # 프로젝트 개요
 
-
-
-## ✅ 프로젝트 배경 및 목적
-운전자 보험 약관은 너무 복잡해 고객이 원하는 정보를 직접 찾아내기 어렵습니다. 
-
-이 프로젝트의 RAG 챗봇은 방대한 약관 속에서 핵심 정보를 추출하여, 사용자가 궁금한 내용을 신뢰성 있게 확인할 수 있도록 돕습니다.
-
 ## 📕 프로젝트 발단
 
 보험 약관이 너무 복잡하고 소비자가 이해하기 어렵다는 사회적 지적이 늘고 있습니다.  
@@ -85,7 +78,11 @@
   * 동의를 해야 가입 가능한 강제성
   * '약관에 다 있었다'라는 마법의 문장으로 보험회사가 유리하게 해석 가능
 
+## ✅ 프로젝트 배경 및 목적
 
+운전자 보험 약관은 내용이 너무 복잡해 고객이 원하는 정보를 직접 찾아내기 어렵습니다. 
+
+이 프로젝트의 RAG 챗봇은 방대한 약관 속에서 핵심 정보를 추출하여, 사용자가 궁금한 내용을 신뢰성 있게 확인할 수 있도록 돕습니다.
 
 ## ❤️ 기대효과
 
@@ -99,14 +96,13 @@
   *  새로운 보험 상품이 출시되거나 약관이 개정될 경우, 해당 문서만 벡터 데이터베이스에 추가하면 챗봇이 즉시 새로운 정보를 바탕으로 답변할 수 있어 유지보수가 간편합니다.
 
 
-
 ## 👤 대상 사용자
 
 운전자보험 약관을 손쉽게 확인하고 싶은 일반 가입자, 그리고 보험 상품 가입을 고려하는 사용자들이 주요 대상입니다. 
 
 이들은 RAG 기반 챗봇을 통해 필요한 정보를 빠르게 얻고, 개인 상황에 맞는 상품 추천까지 받을 수 있습니다.
 
-## 🛠️ 주요 기능 및 기술 스택
+## 🛠️ 주요 기능
 
 * LLM 모델
   * GPT-4.1를 활용
@@ -116,8 +112,6 @@
   * PGVector를 사용하여 PostgreSQL에 문서의 임베딩 벡터를 저장하고 효율적으로 검색합니다.
 * LangChain
   * RAG 체인 구축을 위한 프레임워크로, 문서 로드, 청크 분할, 벡터화, 검색 및 LLM과의 연동 과정을 간소화합니다.
-
-
 
 ## 💡 프로젝트 흐름
 
@@ -131,39 +125,16 @@
   * LLM의 컨텍스트로 전달 -> 답변을 생성 -> 출처를 제공
 
 
-
-
-## Vector DB
+### Vector DB
 | Collection    | Embedding     |
 | ---------- | ---------- |
 | <img width="600" height="300" alt="Image" src="https://github.com/user-attachments/assets/b77924a7-8c06-46e1-897d-e2baa56e0c69" /> | <img width="600" height="300" alt="Image" src="https://github.com/user-attachments/assets/6dc37fde-1434-450c-847e-9f1b7b1146cb" />  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <br/>
 <br/>
 
+### Prompt
 
-# 5. 수행결과
-
-## Prompt
-
-|<img width="1082" height="806" alt="Image" src="https://github.com/user-attachments/assets/a81b5bff-ec4a-4539-b00b-b1635d83bed8" />|<img width="1062" height="738" alt="Image" src="https://github.com/user-attachments/assets/daf83397-3f56-4829-bfda-24c3aa6ffce0" />|
-|-----|-----|
-
-### 최종 Prompt
 <img width="1058" height="877" alt="Image" src="https://github.com/user-attachments/assets/a0726b49-9072-4d6d-8eae-17097c40419e" />
 
 * 신뢰성 확보 -> 근거 없는 답변을 금지하고, 자료 부재 시 보험사 공식 연락처·링크로 안내
@@ -171,7 +142,7 @@
 * 개인 맞춤 기반 추천 서비스 -> 사용자 특성(사고·과실·연령) 기반으로 비교·추천 근거를 구체적으로 제시
 
 
-## 성능 평가
+### 성능 평가
 
 * 1차 Prompt
 
@@ -205,7 +176,7 @@
 <img width="1905" height="1016" alt="Image" src="https://github.com/user-attachments/assets/5d27a1e3-3913-404e-89df-0bd4c77684ed" />
 
 
-### 연령별 추천
+### 연령별 예시
 
 * 30대
 
@@ -220,7 +191,7 @@
 <img width="1440" height="685" alt="image" src="https://github.com/user-attachments/assets/ae4ee676-574a-4c32-8931-929ef851a7ce" />
 
 
-### 상황별
+### 상황별 예시
 
 * 횡단보도에서 무단횡단 보행자 사고
 <img width="1094" height="803" alt="Image" src="https://github.com/user-attachments/assets/b91b9abb-6565-4110-8153-c555f8e3aaaf" />
@@ -237,7 +208,7 @@
   * 법적 기반을 통한 방향성 확보
   * 챗봇이 더욱 풍부한 역할 가능
 
-# 6. 한 줄 회고
+# 회고록
 
 | 기현택     | 권도원     | 유의정     |
 |:----------:|:----------:|:----------:|
