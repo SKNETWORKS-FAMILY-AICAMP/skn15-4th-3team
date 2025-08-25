@@ -164,7 +164,7 @@
 
 ### 연령별 추천
 
-* 20대
+* 30대
 
 <img width="1100" height="751" alt="Image" src="https://github.com/user-attachments/assets/6eb04024-738b-477f-8560-3dbe02202ddb" />
 
