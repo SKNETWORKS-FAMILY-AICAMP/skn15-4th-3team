@@ -3,6 +3,7 @@
 import os
 import json
 from typing import List
+from operator import itemgetter
 
 import streamlit as st
 from sqlalchemy import create_engine, text
@@ -19,6 +20,21 @@ from langchain_community.vectorstores import FAISS
 from langchain.retrievers import EnsembleRetriever
 from langchain_postgres import PGVector
 from langchain_core.messages import HumanMessage
+import re
+
+def render_answer(md: str) -> str:
+    """
+    - '<br>' 표기를 실제 줄바꿈으로 보이게 처리
+    - 표 셀에서도 줄바꿈이 보이도록 HTML <br/> 로 치환
+    - 불필요한 과도한 빈줄 정리
+    """
+    # 1) 다양한 형태의 <br> 태그를 통일
+    s = re.sub(r'<\s*br\s*/?\s*>', '<br/>', md, flags=re.I)
+
+    # 2) 연속 3줄 이상 빈줄 -> 2줄로 축소(과한 공백 방지)
+    s = re.sub(r'\n{3,}', '\n\n', s)
+
+    return s
 
 # =====================
 # 🎨 Custom CSS for a beautiful UI
@@ -102,7 +118,7 @@ body {
     margin-bottom: 1rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     max-width: 75%;
-    line-height: 1.6;
+    line-height: 1;
     font-size: 0.95rem;
     word-wrap: break-word;
     white-space: pre-wrap;
@@ -199,7 +215,7 @@ st.title("운전자 보험 챗봇 서비스")
 
 # --- Environment ---
 # change
-OPENAI_API_KEY = "your-api-key"
+OPENAI_API_KEY = "your_key"
 if not OPENAI_API_KEY:
     st.warning(
         "⚠️ OPENAI_API_KEY 환경변수가 설정되어 있지 않습니다. .env 또는 시스템 환경변수를 확인하세요."
@@ -208,7 +224,7 @@ if not OPENAI_API_KEY:
 connection_string = os.getenv(
     "PG_CONN",
     # change
-    "postgresql+psycopg2://user:password@ip:5432/database",
+    "postgresql+psycopg2://",
 )
 
 
@@ -534,17 +550,30 @@ if user_q:
         with st.chat_message("assistant"):
             with st.spinner("답변을 생성하는 중..."):
                 history_text = get_history_text(current_chat)
+                # rag_chain = (
+                #     RunnablePassthrough.assign(
+                #         context=final_retriever | format_docs,
+                #         history=lambda x: history_text,
+                #     )
+                #     | prompt
+                #     | llm
+                #     | StrOutputParser()
+                # )
+                # answer = rag_chain.invoke({"question": user_q})
                 rag_chain = (
-                    RunnablePassthrough.assign(
-                        context=final_retriever | format_docs,
-                        history=lambda x: history_text,
-                    )
+                    {
+                        "question": itemgetter("question"),
+                        "history": lambda _: history_text,
+                        "context": itemgetter("question") | final_retriever | format_docs,
+                    }
                     | prompt
                     | llm
                     | StrOutputParser()
                 )
+
                 answer = rag_chain.invoke({"question": user_q})
                 st.write(answer)
+
 
                 # 어시스턴트 메시지 추가
                 current_chat["messages"].append(
