@@ -1,0 +1,95 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" version="28.1.1">
+  <diagram name="페이지-1" id="q4qJcvlMkbjvKUt5y2HA">
+    <mxGraphModel dx="1389" dy="749" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-31" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt;RAG Pipline&lt;/b&gt;&lt;/font&gt;" style="fillColor=none;strokeColor=#336791;dashed=1;verticalAlign=top;fontStyle=0;fontColor=#000000;whiteSpace=wrap;html=1;dashPattern=8 8;" vertex="1" parent="1">
+          <mxGeometry x="610" y="20" width="291" height="770" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-32" value="&lt;span style=&quot;letter-spacing: 0.08px; white-space-collapse: preserve;&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;font face=&quot;Tahoma&quot; style=&quot;font-size: 15px; color: rgb(0, 0, 0);&quot;&gt;  Retriever Assembly&lt;/font&gt;&lt;/b&gt;&lt;/span&gt;" style="fillColor=none;strokeColor=#336791;verticalAlign=top;fontStyle=0;fontColor=#000000;whiteSpace=wrap;html=1;align=left;strokeWidth=5;" vertex="1" parent="1">
+          <mxGeometry x="630" y="82.5" width="260" height="487.5" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-15" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt;Streamlit&lt;/b&gt;&lt;/font&gt;" style="fillColor=none;strokeColor=#336791;dashed=1;verticalAlign=top;fontStyle=0;fontColor=#000000;whiteSpace=wrap;html=1;dashPattern=8 8;" vertex="1" parent="1">
+          <mxGeometry x="220" y="60" width="291" height="720" as="geometry" />
+        </mxCell>
+        <mxCell id="Bjbc8OBOjDSdPFl9gOL_-4" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=light-dark(#336791,#336791);strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.rds_postgresql_instance;" parent="1" vertex="1">
+          <mxGeometry x="714.75" y="130" width="81.5" height="81.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Bjbc8OBOjDSdPFl9gOL_-1" value="&lt;b&gt;&lt;font style=&quot;font-size: 20px;&quot; face=&quot;Tahoma&quot;&gt;users&lt;/font&gt;&lt;/b&gt;" style="sketch=0;outlineConnect=0;gradientColor=none;fontColor=#545B64;strokeColor=none;fillColor=#01A88D;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.illustration_users;pointerEvents=1" parent="1" vertex="1">
+          <mxGeometry x="16" y="345.5" width="134.5" height="134.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Bjbc8OBOjDSdPFl9gOL_-3" value="&lt;font face=&quot;Tahoma&quot;&gt;&lt;span style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;답변 출력&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#01A88D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.textract_analyze_lending;" parent="1" vertex="1">
+          <mxGeometry x="970" y="316" width="179.5" height="179.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Bjbc8OBOjDSdPFl9gOL_-7" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.all_products;" parent="1" vertex="1">
+          <mxGeometry x="160" y="395.5" width="49" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="6-Tt_Wst6wLlFNCTfvsB-5" target="Bjbc8OBOjDSdPFl9gOL_-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="60" />
+              <mxPoint x="840" y="171" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-41" value="&lt;font&gt;임베딩&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];labelPosition=center;verticalLabelPosition=bottom;fontSize=12;fontFamily=Tahoma;fontStyle=1" vertex="1" connectable="0" parent="6-Tt_Wst6wLlFNCTfvsB-40">
+          <mxGeometry x="-0.2702" y="3" relative="1" as="geometry">
+            <mxPoint x="12" y="-27" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-5" value="&lt;font face=&quot;Tahoma&quot; style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;보험 약관&lt;/b&gt;&lt;/font&gt;" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.workdocs;fillColor=#336791;gradientColor=none;gradientDirection=north;" vertex="1" parent="1">
+          <mxGeometry x="970" y="12.5" width="67.08" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-9" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.all_products;" vertex="1" parent="1">
+          <mxGeometry x="914" y="389" width="49" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-14" value="&lt;font face=&quot;Tahoma&quot;&gt;&lt;span style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;LLM (gpt-4.1)&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.openapi_explorer;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="693.25" y="610" width="124.5" height="124.5" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-19" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;질문 입력&lt;/b&gt;&lt;/font&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=none;gradientDirection=north;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.customer_engagement;" vertex="1" parent="1">
+          <mxGeometry x="280.5" y="175.5" width="170" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-20" value="&lt;font face=&quot;Tahoma&quot; style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;파일 업로드&lt;/b&gt;&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.file_system;" vertex="1" parent="1">
+          <mxGeometry x="250" y="520" width="96.16" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-21" value="&lt;font face=&quot;Tahoma&quot; style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;리트리버 설정&lt;/b&gt;&lt;/font&gt;" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#7AA116;shadow=0;dashed=0;shape=mxgraph.ios7.icons.looking_glass;" vertex="1" parent="1">
+          <mxGeometry x="420" y="530" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-25" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;개발자 모드&lt;/b&gt;&lt;/font&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#FFFFFF;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.developer_tools;" vertex="1" parent="1">
+          <mxGeometry x="336.5" y="660" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-26" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Main&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="110.5" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-27" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="6-Tt_Wst6wLlFNCTfvsB-15" target="6-Tt_Wst6wLlFNCTfvsB-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="260" as="sourcePoint" />
+            <mxPoint x="630" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-28" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Sidebar&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="435" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-33" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.all_products;" vertex="1" parent="1">
+          <mxGeometry x="536" y="395.5" width="49" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-34" value="&lt;span style=&quot;color: rgb(77, 77, 76); letter-spacing: 0.08px; text-align: right; white-space: pre-wrap;&quot;&gt;&lt;font face=&quot;Tahoma&quot;&gt;&lt;b&gt;CacheBackedEmbeddings &lt;/b&gt;&lt;/font&gt;&lt;/span&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#336791;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.cache_node;" vertex="1" parent="1">
+          <mxGeometry x="713.91" y="452" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-36" value="&lt;font face=&quot;Tahoma&quot;&gt;&lt;b&gt;FAISS&lt;/b&gt;&lt;/font&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#336791;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.database;" vertex="1" parent="1">
+          <mxGeometry x="795.91" y="238" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-37" value="&lt;b style=&quot;color: rgb(31, 35, 40); text-align: left; text-wrap-mode: wrap;&quot;&gt;&lt;font face=&quot;Tahoma&quot;&gt;EnsembleRetriever&lt;/font&gt;&lt;/b&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#336791;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.organizations;" vertex="1" parent="1">
+          <mxGeometry x="713.91" y="345.5" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-42" value="&lt;span style=&quot;font-family: Tahoma; font-size: 12px; font-weight: 700;&quot;&gt;임베딩&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" edge="1" parent="1" source="6-Tt_Wst6wLlFNCTfvsB-38" target="6-Tt_Wst6wLlFNCTfvsB-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Tt_Wst6wLlFNCTfvsB-38" value="&lt;font face=&quot;Tahoma&quot;&gt;&lt;span style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;업로드 파일&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#336791;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.file_system;" vertex="1" parent="1">
+          <mxGeometry x="643.42" y="246" width="66.24" height="62" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
