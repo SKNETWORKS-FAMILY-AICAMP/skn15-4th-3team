@@ -126,38 +126,12 @@
 
 <img width="1058" height="877" alt="Image" src="https://github.com/user-attachments/assets/a0726b49-9072-4d6d-8eae-17097c40419e" />
 
-* 신뢰성 확보 -> 근거 없는 답변을 금지하고, 자료 부재 시 보험사 공식 연락처·링크로 안내
-  
-* 개인 맞춤 기반 추천 서비스 -> 사용자 특성(사고·과실·연령) 기반으로 비교·추천 근거를 구체적으로 제시
 
+<img width="1200" height="650" alt="Image" src="https://github.com/user-attachments/assets/34de3e8b-0936-4a46-bc78-561973e9aa61" />
 
-### 성능 평가
-
-* 1차 Prompt
-
-|지표|수치|설명|
+|faithfulness|answer_relevancy|nv_context_relevance|
 |-----|-----|-----|
-|faithfulness|0.339|답변 충실도, 환각 방지|
-|answer_relevancy|0.171|답변의 질문 관련성|
-|nv_context_relevance|0.408|검색한 문서의 답변 관련성|
-
-
-* 2차 Prompt
-
-|지표|수치|설명|
-|-----|-----|-----|
-|faithfulness|0.392|답변 충실도, 환각 방지|
-|answer_relevancy|0.497|답변의 질문 관련성|
-|nv_context_relevance|0.392|검색한 문서의 답변 관련성|
-
-* 최종 Prompt
-
-|지표|수치|설명|
-|-----|-----|-----|
-|faithfulness|0.416|답변 충실도, 환각 방지|
-|answer_relevancy|0.316|답변의 질문 관련성|
-|nv_context_relevance|0.400|검색한 문서의 답변 관련성|
-
+|답변 충실도, 환각 방지|답변의 질문 관련성 답변이 원래 질문에 얼마나 직접적으로 관련되어 있는지를 측정|검색된 컨텍스트의 질문 관련성 검색한 문서들이 실제로 질문에 답변하는 데 얼마나 유용한 정보를 담고 있는지 측정|
 
 
 
