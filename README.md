@@ -159,11 +159,18 @@
 # 5. 수행결과
 
 ## Streamlit
+<img width="1905" height="1016" alt="Image" src="https://github.com/user-attachments/assets/5d27a1e3-3913-404e-89df-0bd4c77684ed" />
+
 
 ### 연령별 추천
-<img width="911" height="789" alt="Image" src="https://github.com/user-attachments/assets/d7ec959d-4073-47c4-a363-b5cf76720fee" />
-<img width="727" height="822" alt="Image" src="https://github.com/user-attachments/assets/6b555f66-0271-4821-8648-830f2b7af537" />
-<img width="772" height="870" alt="Image" src="https://github.com/user-attachments/assets/d2cda813-72ff-4386-a577-a258eb87110d" />
+
+* 20대
+<img width="732" height="860" alt="Image" src="https://github.com/user-attachments/assets/d7ec959d-4073-47c4-a363-b5cf76720fee" />
+
+* 40대
+<img width="732" height="860" alt="Image" src="https://github.com/user-attachments/assets/16cf193d-f601-4539-87dc-8436f290f9cc" />
+
+* 특정 나이
 <img width="1440" height="685" alt="image" src="https://github.com/user-attachments/assets/ae4ee676-574a-4c32-8931-929ef851a7ce" />
 
 
