@@ -123,34 +123,14 @@
 * 질의응답
   * LLM의 컨텍스트로 전달 -> 답변을 생성 -> 출처를 제공
 
-flowchart LR
-  subgraph Ingestion[인덱싱(사전 준비)]
-    A[보험사 약관 PDF들] --> L1[PyPDFLoader]
-    L1 --> S1[문서 분할\nSemantic / Recursive]
-    S1 --> E1[OpenAIEmbeddings]
-    E1 --> PGV[(PostgreSQL + pgvector)\n여러 Collection]
-    U1[사용자 업로드 파일(pdf/txt)] --> L2[PDFPlumber/텍스트 로더]
-    L2 --> S2[문서 분할]
-    S2 --> E2[OpenAIEmbeddings(캐시)]
-    E2 --> F[(FAISS - 세션 임시 벡터DB)]
-  end
-
-  subgraph App[질의 응답(런타임)]
-    UQ[사용자 질문 + 히스토리\n(Streamlit UI)]
-    UQ --> ER[EnsembleRetriever\nMMR(k, fetch_k, lambda)]
-    ER -->|Top-k| PGV
-    ER -->|Top-k| F
-    PGV --> R[관련 문서들]
-    F --> R
-    R --> FMT[format_docs\n(출처/페이지 포함)]
-    FMT --> PROMPT[ChatPromptTemplate\n(서식·표·추천도·출처 규칙)]
-    PROMPT --> LLM[OpenAI Chat Model\n(gpt-4.x / 4o-mini)]
-    LLM --> POST[render_answer\n줄간격/불릿/배지 정리]
-    POST --> OUT[스트리밍 응답\n(Streamlit Chat)]
-  end
-
-  style Ingestion fill:#f7fcff,stroke:#79b8ff
-  style App fill:#f9f9f9,stroke:#d0d7de
+```mermaid
+graph TD
+    A[사용자 질문] --> B[EnsembleRetriever로 관련 문서 검색]
+    B --> C[PGVector (PostgreSQL)에서 벡터 검색]
+    C --> D[관련 문서 추출]
+    D --> E[LLM에 문서 컨텍스트 전달]
+    E --> F[GPT-4.1이 답변 생성]
+    F --> G[출처 포함된 응답 반환]
 
 
 
