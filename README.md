@@ -164,6 +164,8 @@
 <img width="911" height="789" alt="Image" src="https://github.com/user-attachments/assets/d7ec959d-4073-47c4-a363-b5cf76720fee" />
 <img width="727" height="822" alt="Image" src="https://github.com/user-attachments/assets/6b555f66-0271-4821-8648-830f2b7af537" />
 <img width="772" height="870" alt="Image" src="https://github.com/user-attachments/assets/d2cda813-72ff-4386-a577-a258eb87110d" />
+<img width="1440" height="685" alt="image" src="https://github.com/user-attachments/assets/ae4ee676-574a-4c32-8931-929ef851a7ce" />
+
 
 ### 상황별 추천
 <img width="729" height="866" alt="Image" src="https://github.com/user-attachments/assets/f0c87bd0-4a1f-48f9-9ce6-e8f8812e1ef9" />
