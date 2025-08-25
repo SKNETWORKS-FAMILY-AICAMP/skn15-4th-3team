@@ -61,10 +61,12 @@
 
 ### 약관 예시
 <img width="900" height="600" alt="Image" src="https://github.com/user-attachments/assets/33de0f2c-6dc9-4e1a-8ce0-f60fd56ad948" />
+
 -현대해상-
 
 
 <img width="600" height="850" alt="Image" src="https://github.com/user-attachments/assets/07b31cef-f8ad-42e7-9e9d-72334bfbb0cc" />
+
 -메리츠화재-
 
 ### 약관의 문제점
