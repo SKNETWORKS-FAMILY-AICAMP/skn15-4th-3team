@@ -117,7 +117,7 @@
 * 데이터 전처리
   * PDF -> PyPDFLoader로 로드 -> RecursiveCharacterTextSplitter 문서 청크
 * 임베딩 및 저장
-  * OpenAIEmbeddings를 사용 -> 벡터로 변환 -> 보험사별 collection_name을 지정 -> PGVector에 저장
+  * OpenAIEmbeddings를 사용 -> 벡터로 변환 -> 보험사별 collection_name을 지정 -> PGVector 사용 -> postgreSQL에 저장
 * 다중 검색
   * EnsembleRetriever를 활용 -> 동시에 문서를 검색 -> 가장 관련성 높은 문서
 * 질의응답
