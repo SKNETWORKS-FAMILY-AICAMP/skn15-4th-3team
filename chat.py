@@ -22,6 +22,7 @@ from langchain_postgres import PGVector
 from langchain_core.messages import HumanMessage
 import re
 
+
 def render_answer(md: str) -> str:
     """
     - '<br>' 표기를 실제 줄바꿈으로 보이게 처리
@@ -29,12 +30,13 @@ def render_answer(md: str) -> str:
     - 불필요한 과도한 빈줄 정리
     """
     # 1) 다양한 형태의 <br> 태그를 통일
-    s = re.sub(r'<\s*br\s*/?\s*>', '<br/>', md, flags=re.I)
+    s = re.sub(r"<\s*br\s*/?\s*>", "<br/>", md, flags=re.I)
 
     # 2) 연속 3줄 이상 빈줄 -> 2줄로 축소(과한 공백 방지)
-    s = re.sub(r'\n{3,}', '\n\n', s)
+    s = re.sub(r"\n{3,}", "\n\n", s)
 
     return s
+
 
 # =====================
 # 🎨 Custom CSS for a beautiful UI
@@ -56,7 +58,7 @@ body {
 ===================== */
 .main .block-container {
     padding: 2rem 2.5rem;
-    max-width: 900px;
+    max-width: 100%;
     margin: auto;
 }
 
@@ -70,8 +72,7 @@ body {
     min-width: 220px;
 }
 
-[data-testid="stSidebar"] h2,
-[data-testid="stSidebar"] h3 {
+[data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3 {
     color: #111827;
     font-weight: 600;
 }
@@ -108,30 +109,6 @@ body {
 }
 .stButton:nth-child(1) button:hover {
     background-color: #1e40af !important;
-}
-
-/* =====================
-   사이드바 닫혔을 때 전체 확장
-===================== */
-/* 1. 최상위 컨테이너에서 닫힌 사이드바 숨기기 */
-[data-testid="stAppViewContainer"] > [data-testid="stSidebar"][aria-expanded="false"] {
-    display: none !important;
-    width: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-/* 2. 사이드바 다음 .main 영역 너비 100% */
-[data-testid="stAppViewContainer"] > [data-testid="stSidebar"][aria-expanded="false"] + .main {
-    width: 100% !important;
-    margin: 0 !important;
-}
-
-/* 3. .block-container 내부 콘텐츠 가득 채우기 */
-[data-testid="stAppViewContainer"] > [data-testid="stSidebar"][aria-expanded="false"] + .main .block-container {
-    max-width: none !important;
-    width: calc(100% - 4rem) !important;
-    margin: auto !important;
 }
 
 /* =====================
@@ -232,7 +209,6 @@ hr {
 )
 
 
-
 # =====================
 # ⚙️ App Config
 # =====================
@@ -241,7 +217,7 @@ st.title("운전자 보험 챗봇 서비스")
 
 # --- Environment ---
 # change
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY = "your-api-key"
 if not OPENAI_API_KEY:
     st.warning(
         "⚠️ OPENAI_API_KEY 환경변수가 설정되어 있지 않습니다. .env 또는 시스템 환경변수를 확인하세요."
@@ -249,8 +225,7 @@ if not OPENAI_API_KEY:
 
 connection_string = os.getenv(
     "PG_CONN",
-    # change
-    "postgresql+psycopg2://",
+    "postgresql+psycopg2://url",
 )
 
 
@@ -495,35 +470,37 @@ prompt = ChatPromptTemplate.from_template(
 다음 지시사항을 철저히 따라 사용자의 질문에 한국어로 답변하세요.
 
 답변의 서식:
-- 마크다운(Markdown)을 사용하여 답변을 구조화하세요.
-- 줄바꿈은 최대 두 칸만 사용하세요.
-- 주요 정보는 **볼드체**로 강조하세요.
+마크다운(Markdown)을 사용하여 답변을 구조화하세요.
+줄바꿈은 최대 두 칸만 사용하세요.
+주요 정보는 볼드체로 강조하세요.
+내용에 맞는 이모티콘 자유롭게 사용하세요.
 
-- 모든 섹션은 반드시 아래 계층을 따릅니다.
-  1) 제목: `##`  (한 답변에 2~4개 이하 권장)
-  2) 소제목: `###`  (상품명/항목명/소단락 제목은 반드시 소제목으로, 불릿 금지)
-  3) 세부 포인트: `- ` 불릿 목록 (각 소제목 아래 설명은 모두 불릿으로 정리)
-- 불릿은 **“- ” + 공백 + 텍스트** 형식만 사용합니다.
-- 헤딩 앞뒤 빈 줄은 **딱 1줄**만, 불릿 사이에는 **빈 줄 금지**.
+모든 섹션은 반드시 아래 계층을 따릅니다.
+1) 제목: ##  (한 답변에 2~4개 이하 권장)
+2) 소제목: ###  (상품명/항목명/소단락 제목은 반드시 소제목으로, 불릿 금지)
+3) 세부 포인트: -  불릿 목록 (각 소제목 아래 설명은 모두 불릿으로 정리)
+불릿은 “- ” + 공백 + 텍스트 형식만 사용합니다.
+헤딩 앞뒤 빈 줄은 딱 1줄만, 불릿 사이에는 빈 줄 금지.
 
-- 여러 회사를 비교하는 경우, 반드시 마크다운 표를 활용하여 설명과 함께 항목별로 정리하세요.
-- 표를 만들 때는 필요시 **'추천도' 열**을 포함하세요.
-- 추천도 열에만 ⭕ / ▲ / ○(보통) / × / - 다섯 가지 기호만 사용하세요.
-- 추천도 열 사용시, 표 바로 아래줄에 반드시 범례를 추가하세요: ⭕ 강력 추천 / ▲ 조건부 / ○ 보통 / × 없음 / - 미확인
+
+여러 회사를 비교하는 경우, 반드시 마크다운 표를 활용하여 설명과 함께 항목별로 정리하세요.
+표를 만들 때는 필요시 '추천도' 열을 포함하세요.
+추천도 열에만 ⭕ / ▲ / ○(보통) / × / - 다섯 가지 기호만 사용하세요.
+추천도 열 사용시, 표 바로 아래줄에 반드시 범례를 추가하세요: ⭕ 강력 추천 / ▲ 조건부 / ○ 보통 / × 없음 / - 미확인
 
 
 답변의 내용:
-- 전문 용어는 피하고, 누구나 이해할 수 있도록 쉽고 자세하게 설명하세요.
-- 답변은 질문에 대한 직접적인 내용만을 포함하며, 불필요한 서론이나 결론은 제외하세요.
-- 제시된 '컨텍스트' 내의 정보만 사용하세요. 컨텍스트에 없는 내용은 절대로 지어내지 마세요.
-- 컨텍스트에 없는 내용을 질문할 시, 모른다고 말하지말고 질문한 회사의 전화번호나 링크를 줘서 직접 내용을 탐색하도록 유도하세요.
-- 비교할때는 차이점을 명확하게 구체적으로 설명하세요.
-- 추천 시에는 그 이유(보장 범위, 특화 옵션, 지급 조건 등)를 구체적으로 설명하세요.
-- 사용자 상황(사고 유형/과실/연령 등)을 반영해 차이점·추천 근거를 구체적으로 제시.
+전문 용어는 피하고, 누구나 이해할 수 있도록 쉽고 자세하게 설명하세요.
+답변은 질문에 대한 직접적인 내용만을 포함하며, 불필요한 서론이나 결론은 제외하세요.
+제시된 '컨텍스트' 내의 정보만 사용하세요. 컨텍스트에 없는 내용은 절대로 지어내지 마세요.
+컨텍스트에 없는 내용을 질문할 시, 모른다고 말하지말고 질문한 회사의 전화번호나 링크를 줘서 직접 내용을 탐색하도록 유도하세요.
+비교할때는 차이점을 명확하게 구체적으로 설명하세요.
+추천 시에는 그 이유(보장 범위, 특화 옵션, 지급 조건 등)를 구체적으로 설명하세요.
+사용자 상황(사고 유형/과실/연령 등)을 반영해 차이점·추천 근거를 구체적으로 제시.
 
 출처 표기:
-- 답변에 사용된 모든 정보는 마지막에 출처(파일명/페이지)를 명확히 명시하세요.
-- 출처는 항상 괄호(()) 안에 (출처: 파일명, 페이지 p.N) 형식으로 표시하세요.
+답변에 사용된 모든 정보는 마지막에 출처(파일명/페이지)를 명확히 명시하세요.
+출처는 항상 괄호(()) 안에 (출처: 파일명, 페이지 p.N) 형식으로 표시하세요.
 
 마지막에는 항상 더 물어볼 내용이 있는지 물어보면서 대화를 더 길게하도록 유도해
 
@@ -602,7 +579,9 @@ if user_q:
                     {
                         "question": itemgetter("question"),
                         "history": lambda _: history_text,
-                        "context": itemgetter("question") | final_retriever | format_docs,
+                        "context": itemgetter("question")
+                        | final_retriever
+                        | format_docs,
                     }
                     | prompt
                     | llm
@@ -611,7 +590,6 @@ if user_q:
 
                 answer = rag_chain.invoke({"question": user_q})
                 st.write(answer)
-
 
                 # 어시스턴트 메시지 추가
                 current_chat["messages"].append(
