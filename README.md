@@ -1,6 +1,8 @@
-# skn15-3rd-3team
+# 운전자 보험 약관 RAG 챗봇
 
-# 1. 팀 소개
+
+
+# 팀 소개
 <div align="center">
 <img width="320" height="320" alt="Image" src="https://github.com/user-attachments/assets/34eb158f-413f-4f38-b1e4-6440ea6ae851" />
 
@@ -15,25 +17,35 @@
 <br/>
 <br/>
 
-# 2. 프로젝트 기간
-2025년 8월 22일 ~ 2025년 8월 25일 (2일)
+# 기술 스택
+
+| 항목    | 내용     |
+| ---------- | ---------- |
+| Language    | <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">  <img src="https://img.shields.io/badge/sql-4479A1?style=for-the-badge&logo=sql&logoColor=white"> |
+| Development    |<img src="https://img.shields.io/badge/streamlit-7952B3?style=for-the-badge&logo=streamlit&logoColor=white"> <img src="https://img.shields.io/badge/Visual Studio Code-61DAFB?style=for-the-badge&logo=VisualStudioCode&logoColor=white"> <img src="https://img.shields.io/badge/langchain-1C3C3C?style=for-the-badge&logo=openai&logoColor=white"> <img src="https://img.shields.io/badge/RAG-FFCA28?style=for-the-badge&logo=rag&logoColor=white">|
+| Embedding    | <img src="https://img.shields.io/badge/OpenAIEmbedding-181717?style=for-the-badge&logo=openai&logoColor=white">     |
+| LLM Model    | <img src="https://img.shields.io/badge/chatgpt_4.1-3776AB?style=for-the-badge&logo=openai&logoColor=white">      |
+| Collaboration Tool    | <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/Discord-02569B?style=for-the-badge&logo=Discord&logoColor=white">     |
+| Vector DB    |<img src="https://img.shields.io/badge/pgvector-00599C?style=for-the-badge&logo=pgvector&logoColor=white"> <img src="https://img.shields.io/badge/psycopg2-3776AB?style=for-the-badge&logo=psycopg2&logoColor=white"> <img src="https://img.shields.io/badge/PostgreSQL-0769AD?style=for-the-badge&logo=postgresql&logoColor=white">    |
+| API    | <img src="https://img.shields.io/badge/OpenAI API-181717?style=for-the-badge&logo=openai&logoColor=white">    |
+
+
+# 프로젝트 기간
+2025년 8월 22일, 2025년 8월 25일 (2일)
 <br/>
 <br/>
 <br/>	
 
-# 3. 프로젝트 개요
+# 프로젝트 개요
 
-## 📕 프로젝트명
-운전자 보험 약관 RAG 챗봇
+
 
 ## ✅ 프로젝트 배경 및 목적
 운전자 보험 약관은 너무 복잡해 고객이 원하는 정보를 직접 찾아내기 어렵습니다. 
 
 이 프로젝트의 RAG 챗봇은 방대한 약관 속에서 핵심 정보를 추출하여, 사용자가 궁금한 내용을 신뢰성 있게 확인할 수 있도록 돕습니다.
 
-## 🖐️ 프로젝트 소개
-
-### 프로젝트 발단
+## 📕 프로젝트 발단
 
 보험 약관이 너무 복잡하고 소비자가 이해하기 어렵다는 사회적 지적이 늘고 있습니다.  
 <img width="500" height="250" alt="Image" src="https://github.com/user-attachments/assets/45202a26-0fa5-40c7-973f-9baea4bf5f85" /><img width="500" height="250" alt="Image" src="https://github.com/user-attachments/assets/e3743b6c-fcb2-4616-acdb-6b26408f689a" />
@@ -62,11 +74,6 @@
 <img width="900" height="600" alt="Image" src="https://github.com/user-attachments/assets/33de0f2c-6dc9-4e1a-8ce0-f60fd56ad948" />
 
 -현대해상-
-
-
-<img width="600" height="850" alt="Image" src="https://github.com/user-attachments/assets/07b31cef-f8ad-42e7-9e9d-72334bfbb0cc" />
-
--메리츠화재-
 
 ### 약관의 문제점
 
@@ -133,17 +140,6 @@
 
 
 
-# 4. 기술 스택
-
-| 항목    | 내용     |
-| ---------- | ---------- |
-| Language    | <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">  <img src="https://img.shields.io/badge/sql-4479A1?style=for-the-badge&logo=sql&logoColor=white"> |
-| Development    |<img src="https://img.shields.io/badge/streamlit-7952B3?style=for-the-badge&logo=streamlit&logoColor=white"> <img src="https://img.shields.io/badge/Visual Studio Code-61DAFB?style=for-the-badge&logo=VisualStudioCode&logoColor=white"> <img src="https://img.shields.io/badge/langchain-1C3C3C?style=for-the-badge&logo=openai&logoColor=white"> <img src="https://img.shields.io/badge/RAG-FFCA28?style=for-the-badge&logo=rag&logoColor=white">|
-| Embedding    | <img src="https://img.shields.io/badge/OpenAIEmbedding-181717?style=for-the-badge&logo=openai&logoColor=white">     |
-| LLM Model    | <img src="https://img.shields.io/badge/chatgpt_4.1-3776AB?style=for-the-badge&logo=openai&logoColor=white">      |
-| Collaboration Tool    | <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/Discord-02569B?style=for-the-badge&logo=Discord&logoColor=white">     |
-| Vector DB    |<img src="https://img.shields.io/badge/pgvector-00599C?style=for-the-badge&logo=pgvector&logoColor=white"> <img src="https://img.shields.io/badge/psycopg2-3776AB?style=for-the-badge&logo=psycopg2&logoColor=white"> <img src="https://img.shields.io/badge/PostgreSQL-0769AD?style=for-the-badge&logo=postgresql&logoColor=white">    |
-| API    | <img src="https://img.shields.io/badge/OpenAI API-181717?style=for-the-badge&logo=openai&logoColor=white">    |
 
 
 
