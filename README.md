@@ -98,18 +98,11 @@
   *  다양한 상황에 대한 응대를 챗봇이 대신함으로써, 콜센터 직원들이 더 복잡하고 전문적인 상담에 집중할 수 있게 되어 업무 효율이 증대할 수 있습니다.
 
 
-## 🛠️ 주요 사용 기능
+## 🛠️ 플로우 구조
 
-* LLM 모델
-  * GPT-4.1를 활용
-* RAG(Retrieval-Augmented Generation)
-  * 사용자 질문과 관련된 문서를 벡터 데이터베이스에서 검색하여 LLM에 제공함으로써 답변의 정확성과 신뢰성을 높입니다.
-* 벡터 데이터베이스
-  * PGVector를 사용하여 PostgreSQL에 문서의 임베딩 벡터를 저장하고 효율적으로 검색합니다.
-* LangChain
-  * RAG 체인 구축을 위한 프레임워크로, 문서 로드, 청크 분할, 벡터화, 검색 및 LLM과의 연동 과정을 간소화합니다.
+<img width="1200" height="600" alt="Image" src="https://github.com/user-attachments/assets/efcbcc95-25f5-4b3d-9165-10e86ac5ed8a" />
 
-## 💡 RAG 챗봇 코드 간단 구조
+<img width="1200" height="650" alt="Image" src="https://github.com/user-attachments/assets/9d7f1eaa-7249-417a-8ff9-375e1344fa8f" />
 
 * 데이터 전처리
   * PDF -> PyPDFLoader로 로드 -> RecursiveCharacterTextSplitter 문서 청크
