@@ -33,15 +33,14 @@
 
 ## 🖐️ 프로젝트 소개
 
-<img width="967" height="359" alt="Image" src="https://github.com/user-attachments/assets/45202a26-0fa5-40c7-973f-9baea4bf5f85" />
+### 프로젝트 발단
 
-(보험신보. 2020.04.27)
+보험 약관이 너무 복잡하고 소비자가 이해하기 어렵다는 사회적 지적이 늘고 있습니다.  
+<img width="500" height="250" alt="Image" src="https://github.com/user-attachments/assets/45202a26-0fa5-40c7-973f-9baea4bf5f85" /><img width="500" height="250" alt="Image" src="https://github.com/user-attachments/assets/e3743b6c-fcb2-4616-acdb-6b26408f689a" />
+(보험신보. 2020.04.27)(nate뉴스. 2025.02.13)
+
 
 보험사의 약관은 매년 더 복잡해지고 길어지며, 가입자들에게는 쉽고 가볍게 읽기 어려운 문서가 되어가고 있습니다. 이 프로젝트는 바로 그 문제에서 출발했습니다.
-
-<img width="863" height="405" alt="Image" src="https://github.com/user-attachments/assets/e3743b6c-fcb2-4616-acdb-6b26408f689a" />
-
-(nate뉴스. 2025.02.13)
 
 보험 약관은 때로는 300페이지, 심지어 500페이지를 넘어가기도 합니다. 이렇게 방대한 문서를 고객이 처음부터 끝까지 살펴보는 것은 현실적으로 어렵습니다.
 
@@ -70,6 +69,7 @@
 -메리츠화재-
 
 ### 약관의 문제점
+
 * 소비자에게 매우 불리한 방대한 내용
   * 빼곡한 글자와 어려운 용어 난무
   * 500 페이지가 넘는 엄청난 양
@@ -194,7 +194,13 @@
 |answer_relevancy|0.497|답변의 질문 관련성|
 |nv_context_relevance|0.392|검색한 문서의 답변 관련성|
 
+* 최종 Prompt
 
+|지표|수치|설명|
+|-----|-----|-----|
+|faithfulness|0.416|답변 충실도, 환각 방지|
+|answer_relevancy|0.316|답변의 질문 관련성|
+|nv_context_relevance|0.400|검색한 문서의 답변 관련성|
 
 
 
