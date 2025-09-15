@@ -6,6 +6,7 @@ psycopg2-binary>=2.9
 djangorestframework
 gunicorn
 whitenoise
+nginx
 
 # AI / RAG
 transformers>=4.42.0

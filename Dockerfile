@@ -6,6 +6,7 @@ WORKDIR /app
 
 # 기본 패키지 설치 (psycopg2, torch 빌드에 필요)
 RUN apt-get update && apt-get install -y \
+    nginx \
     gcc \
     g++ \
     libpq-dev \
