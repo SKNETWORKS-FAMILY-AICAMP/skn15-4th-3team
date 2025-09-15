@@ -6,13 +6,18 @@ from langchain.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_postgres import PGVector
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # --- 환경 변수 불러오기 ---
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "your-api-key")
-PG_CONN = os.getenv("PG_CONN", "postgresql+psycopg2://user:pass@host:5432/dbname")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+PG_CONN = os.getenv("PG_CONN")
 
 # --- LLM & Embeddings ---
 llm = ChatOpenAI(model="gpt-4o-mini", api_key=OPENAI_API_KEY)
 embed = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
+
 
 # --- Retriever 세팅 ---
 def get_retriever():
@@ -26,6 +31,7 @@ def get_retriever():
         search_type="mmr",
         search_kwargs={"k": 4, "fetch_k": 20, "lambda_mult": 0.8},
     )
+
 
 # --- Prompt ---
 prompt = ChatPromptTemplate.from_template(
@@ -58,16 +64,16 @@ def format_docs(docs):
         lines.append(f"{d.page_content}\n(출처: {os.path.basename(src)}, p.{page})")
     return "---".join(lines)
 
+
 # --- 최종 RAG 실행 함수 ---
 def rag_answer(question: str) -> str:
     retriever = get_retriever()
-    rag_chain = (
-        {
-            "question": itemgetter("question"),
-            "context": itemgetter("question") | retriever | format_docs,
-        }
-        | prompt
-        | llm
-        | StrOutputParser()
-    )
-    return rag_chain.invoke({"question": question})
+
+    # 검색
+    docs = retriever.get_relevant_documents(question)
+    context = format_docs(docs)
+
+    # LLM 호출
+    chat_input = prompt.format(question=question, context=context)
+    answer = llm.invoke([chat_input])  # HumanMessage 없이 문자열로도 가능
+    return answer.content.strip()
