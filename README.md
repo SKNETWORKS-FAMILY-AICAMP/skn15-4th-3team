@@ -18,6 +18,13 @@
 <br/>
 <br/>
 
+# 프로젝트 기간
+2025년 9월 15일 ~ 9월 16일 (2일)
+<br/>
+<br/>
+<br/>	
+
+
 # 기술 스택
 
 | 항목    | 내용     |
@@ -33,11 +40,7 @@
 |Evaulation|<img src="https://img.shields.io/badge/Ragas-F7DF1E?style=for-the-badge&logo=ragas&logoColor=white"> |
 
 
-# 프로젝트 기간
-2025년 9월 15일 ~ 9월 16일 (2일)
-<br/>
-<br/>
-<br/>	
+
 
 # 🗂️ 디렉토리 구조
 
