@@ -72,14 +72,17 @@ function appendMessage(chatWindow, message, type) {
     chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
-// --- ## 수정된 부분: 질문 답변(QA) 페이지 기능 로직 (서버 연동) ## ---
+// --- 질문 답변(QA) 페이지 기능 로직 (마크다운 렌더링 + 스크롤 포함) ---
 askButton.addEventListener('click', async () => {
     const question = questionInput.value.trim();
     if (question === '') return;
 
+    // 첫 질문이면 최근 채팅 기록에 추가
     if (qaChatWindow.children.length === 0) {
         addChatToHistory(question, '#qa-page');
     }
+
+    // 사용자 질문 화면에 추가
     appendMessage(qaChatWindow, question, 'user');
     questionInput.value = '';
 
@@ -100,6 +103,8 @@ askButton.addEventListener('click', async () => {
         }
 
         const data = await response.json();
+
+        // AI 답변 마크다운 렌더링 후 추가
         appendMessage(qaChatWindow, data.answer, 'ai');
 
     } catch (error) {
@@ -107,6 +112,24 @@ askButton.addEventListener('click', async () => {
         appendMessage(qaChatWindow, '죄송합니다. 답변을 가져오는 중 오류가 발생했습니다.', 'ai');
     }
 });
+
+// --- appendMessage 함수 수정: 마크다운 렌더링 포함 ---
+function appendMessage(chatWindow, message, type) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', `${type}-message`);
+
+    if (type === 'ai') {
+        // 마크다운 렌더링 (marked 라이브러리 필요)
+        messageElement.innerHTML = marked.parse(message);
+    } else {
+        messageElement.innerText = message;
+    }
+
+    chatWindow.appendChild(messageElement);
+    // 항상 최신 메시지로 스크롤
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
 
 // --- 정보 추천 페이지 기능 로직 ---
 recommendButton.addEventListener('click', () => {
