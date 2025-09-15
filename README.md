@@ -7,10 +7,10 @@
 <img width="320" height="320" alt="Image" src="https://github.com/user-attachments/assets/34eb158f-413f-4f38-b1e4-6440ea6ae851" />
 
 
-| 기현택     | 권도원     | 유의정     | 이소정     | 이준원     | 한승희    |
+| 이준원    | 권도원    | 기현택       | 유의정     | 이소정  | 한승희    |
 |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-|[@mathplanet](https://github.com/mathplanet)|[@dowonk120](https://github.com/dowonk120)|[@ryu0ej](https://github.com/Rr-EJ)|[@leesojunghub](https://github.com/leesojunghub)|[@none-jun](https://github.com/none-jun)|[@seunghee-han](https://github.com/seunghee-han)|
-| Project Manager | Prompt Engineer | Frontend Engineer | Dataset Manager | Evaluation Specialist | Prompt Engineer |
+|[@none-jun](https://github.com/none-jun)|[@dowonk120](https://github.com/dowonk120)|[@mathplanet](https://github.com/mathplanet)|[@ryu0ej](https://github.com/Rr-EJ)|[@leesojunghub](https://github.com/leesojunghub)|[@seunghee-han](https://github.com/seunghee-han)|
+| Project Manager |  | | |  |  |
 
 </div>
 <br/>
