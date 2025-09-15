@@ -1,18 +1,24 @@
-# Python 공식 이미지 기반
-FROM python:3.11-slim
+# Python 3.12 slim 이미지 사용
+FROM python:3.12-slim
 
-# 컨테이너 안 작업 경로
+# 작업 디렉토리 설정
 WORKDIR /app
 
-# 필수 패키지 (Postgres 쓰려면 libpq-dev 필요)
-RUN apt-get update && apt-get install -y build-essential libpq-dev \
- && rm -rf /var/lib/apt/lists/*
+# 기본 패키지 설치 (psycopg2, torch 빌드에 필요)
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    libpq-dev \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
-# Django와 gunicorn 설치
-RUN pip install --no-cache-dir django gunicorn
+# requirements.txt 복사 및 설치
+COPY requirements.txt .
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
 
-# 프로젝트 코드 복사 (지금은 비어있어도 됨)
-COPY . /app
+# 소스코드 복사
+COPY . .
 
-# 서버 실행 명령
-CMD ["gunicorn", "insurance_chatbot.wsgi:application", "-b", "0.0.0.0:8000"]
+# Django 실행 (개발용) — 운영에서는 gunicorn + nginx 권장
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
