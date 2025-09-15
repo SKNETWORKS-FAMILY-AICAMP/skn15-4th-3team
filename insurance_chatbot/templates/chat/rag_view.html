@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>운전자 보험 챗봇</title>
+  <script>
+    async function sendMessage() {
+      const q = document.getElementById("q").value;
+
+      // CSRF 토큰 가져오기
+      const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+      const res = await fetch("/rag_view/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": csrftoken
+        },
+        body: JSON.stringify({"question": q})
+      });
+
+      const data = await res.json();
+      document.getElementById("answer").innerText = data.answer;
+    }
+  </script>
+</head>
+<body>
+  <h1>운전자 보험 챗봇 서비스</h1>
+
+  <form onsubmit="event.preventDefault(); sendMessage();">
+    {% csrf_token %}
+    <input id="q" type="text" placeholder="질문 입력..." style="width: 300px;" />
+    <button type="submit">보내기</button>
+  </form>
+
+  <h3>답변:</h3>
+  <p id="answer"></p>
+</body>
+</html>

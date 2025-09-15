@@ -6,11 +6,13 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .rag import rag_answer
 
-@api_view(["POST"])
 def rag_view(request):
-    question = request.data.get("question", "")
-    if not question:
-        return Response({"error": "question is required"}, status=400)
+    answer = None
+    question = None
 
-    answer = rag_answer(question)
-    return Response({"question": question, "answer": answer})
+    if request.method == "POST":
+        question = request.POST.get("question", "")
+        if question:
+            answer = rag_answer(question)
+
+    return render(request, "chat/rag_view.html", {"question": question, "answer": answer})
