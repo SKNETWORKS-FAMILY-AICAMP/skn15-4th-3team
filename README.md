@@ -44,6 +44,48 @@
 
 
 ## 🗂️ 디렉토리 구조
+```
+Project
+├── insurance_chatbot/
+│   ├── chat/
+│   │   ├── migrations/
+│   │   │   ├──__pycache__/
+│   │   │   └── __init__.py
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── models.py
+│   │   ├── rag.py
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   ├── insurance_chatbot/
+│   │   ├── __pycache__/
+│   │   ├── __init__.py
+│   │   ├── asgi.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── static/
+│   │   ├── css/
+│   │   │   └── style.css
+│   │   ├── images/
+│   │   │   └── logo.png
+│   │   └── js/
+│   │   │   └── script.js
+│   ├── templates/chat
+│   │   ├── login.html
+│   │   ├── rag_view.html
+│   │   └── singup.html
+│   ├── db.sqlite3
+│   └── manage.py
+├── .gitignore
+├── Dockerfile
+├── docker-compose.yml
+└── requirements.txt
+
+```
+
 
 ## ⚙️ 주요 기능
 
