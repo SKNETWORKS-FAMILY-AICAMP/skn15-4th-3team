@@ -53,65 +53,221 @@
             </div>
         </aside>
         
-        <button id="sidebar-toggle-btn" class="sidebar-toggle-btn">
+        <button id="sidebar-toggle-btn" class="sidebar-toggle-btn" aria-label="사이드바 토글">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#007bff" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
         </button>
 
         <main class="content-area">
-            <div id="home-page" class="content-page">
+            <!-- 홈 페이지 -->
+            <div id="home-page" class="content-page active">
                 <div class="home-header">
                     <h2>두 가지 스마트 기능</h2>
                     <p>최신 AI 기술과 데이터를 통해 정확한 정보를 제공합니다.</p>
                 </div>
                 <div class="feature-cards-container">
                     <div class="feature-card" data-target="#qa-page">
-                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </div>
                         <h3>질문 답변 AI</h3>
                         <p>RAG 모델을 통해 궁금한 점을 실시간으로 해결하세요. AI가 분석한 최적의 답변을 제공합니다.</p>
-                        <button class="card-button">→ 질문하기</button>
+                        <button class="card-button" type="button">→ 질문하기</button>
                     </div>
                     <div class="feature-card" data-target="#recommend-page">
-                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg></div>
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+                                <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                            </svg>
+                        </div>
                         <h3>맞춤형 추천 시스템</h3>
                         <p>성별, 나이, 관심사 등 개인 맞춤형 정보를 기반으로 가장 적합한 선택지를 추천받아보세요.</p>
-                        <button class="card-button">→ 추천받기</button>
+                        <button class="card-button" type="button">→ 추천받기</button>
                     </div>
                 </div>
             </div>
+
+            <!-- 질문 답변 페이지 -->
             <div id="qa-page" class="content-page">
                 <div class="chat-page-container">
                     <div class="chat-header">
                         <span class="chat-title">질문 답변</span>
                         <span class="llm-model-name">GPT-4o</span>
                     </div>
-                    <div class="chat-window" id="chat-window-qa"></div>
-                    <form class="input-container" onsubmit="event.preventDefault(); document.getElementById('ask-button').click();">
+
+                    <div class="chat-window" id="chat-window-qa">
+                        <div class="welcome-message">
+                            <p>안녕하세요! 운전자 보험에 대해 궁금한 점을 질문해주세요.</p>
+                        </div>
+                    </div>
+
+                    <form class="input-container" id="qa-form">
                         {% csrf_token %}
-                        <textarea id="question-input" placeholder="여기에 질문을 입력하세요..." onkeydown="if(event.keyCode==13 && !event.shiftKey){event.preventDefault(); document.getElementById('ask-button').click();}"></textarea>
-                        <button id="ask-button" type="submit">전송</button>
+                        <textarea name="question" id="question-input" placeholder="여기에 질문을 입력하세요..." required></textarea>
+                        <button type="submit" id="send-btn">전송</button>
                     </form>
+                    
+                    <!-- 로딩 표시 -->
+                    <div id="loading" class="loading" style="display: none;">
+                        <div class="loading-spinner"></div>
+                        <span>답변을 생성중입니다...</span>
+                    </div>
                 </div>
             </div>
+
+            <!-- 추천 페이지 -->
             <div id="recommend-page" class="content-page">
-                 <div class="chat-page-container">
+                <div class="chat-page-container">
                     <div class="chat-header">
                         <span class="chat-title">정보 추천</span>
                         <span class="llm-model-name">GPT-4o</span>
                     </div>
-                    <div class="chat-window" id="chat-window-recommend"></div>
+                    
+                    <div class="chat-window" id="chat-window-recommend">
+                        <div class="welcome-message">
+                            <p>개인 정보를 입력하시면 맞춤형 보험 정보를 추천해드립니다.</p>
+                        </div>
+                    </div>
+                    
                     <div class="recommend-form">
-                        <div class="form-group"><label>성별</label><div class="radio-group"><label><input type="radio" name="gender" value="남성" checked> 남성</label><label><input type="radio" name="gender" value="여성"> 여성</label></div></div>
-                        <div class="form-group"><label for="age-input">나이</label><input type="number" id="age-input" placeholder="나이를 입력하세요" min="1"></div>
-                        <div class="form-group"><label for="car-type-select">관심 차종</label><select id="car-type-select"><option value="소형">소형</option><option value="중형">중형</option><option value="대형">대형</option></select></div>
-                        <button id="recommend-button">추천받기</button>
+                        <div class="form-group">
+                            <label>성별</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="gender" value="남성" checked> 남성</label>
+                                <label><input type="radio" name="gender" value="여성"> 여성</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="age-input">나이</label>
+                            <input type="number" id="age-input" placeholder="나이를 입력하세요" min="1" max="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="car-type-select">관심 차종</label>
+                            <select id="car-type-select">
+                                <option value="소형">소형</option>
+                                <option value="중형">중형</option>
+                                <option value="대형">대형</option>
+                            </select>
+                        </div>
+                        <button type="button" id="recommend-button">추천받기</button>
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
+    <!-- JavaScript 파일들 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="{% static 'js/script.js' %}" defer></script>
+    
+    <script>
+        // CSRF 토큰 가져오기
+        function getCSRFToken() {
+            return document.querySelector('[name=csrfmiddlewaretoken]').value;
+        }
+
+        // 질문 답변 AJAX 처리
+        document.getElementById('qa-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const questionInput = document.getElementById('question-input');
+            const question = questionInput.value.trim();
+            
+            if (!question) {
+                alert('질문을 입력해주세요.');
+                return;
+            }
+
+            const chatWindow = document.getElementById('chat-window-qa');
+            const loading = document.getElementById('loading');
+            const sendBtn = document.getElementById('send-btn');
+            
+            // 사용자 질문 표시
+            chatWindow.innerHTML += `
+                <div class="message user-message">
+                    <div class="message-content">${question}</div>
+                </div>
+            `;
+            
+            // 로딩 표시
+            loading.style.display = 'flex';
+            sendBtn.disabled = true;
+            questionInput.disabled = true;
+            
+            try {
+                const csrfToken = getCSRFToken() || getCookie('csrftoken');
+                
+                const response = await fetch('{% url "rag_view" %}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken
+                    },
+                    body: JSON.stringify({ question: question })
+                });
+
+                const data = await response.json();
+                
+                console.log('Response status:', response.status);
+                console.log('Response data:', data);
+                
+                if (response.ok) {
+                    // 답변 표시 (마크다운 렌더링)
+                    const renderedAnswer = marked.parse(data.answer);
+                    chatWindow.innerHTML += `
+                        <div class="message bot-message">
+                            <div class="message-content">${renderedAnswer}</div>
+                        </div>
+                    `;
+                } else {
+                    chatWindow.innerHTML += `
+                        <div class="message error-message">
+                            <div class="message-content">오류: ${data.error}</div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                chatWindow.innerHTML += `
+                    <div class="message error-message">
+                        <div class="message-content">네트워크 오류: ${error.message}</div>
+                    </div>
+                `;
+            } finally {
+                // 로딩 숨기기
+                loading.style.display = 'none';
+                sendBtn.disabled = false;
+                questionInput.disabled = false;
+                questionInput.value = '';
+                
+                // 스크롤을 맨 아래로
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+            }
+        });
+
+        // 페이지 네비게이션
+        document.querySelectorAll('.nav-link, .feature-card').forEach(element => {
+            element.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href') || this.getAttribute('data-target');
+                
+                // 모든 페이지 숨기기
+                document.querySelectorAll('.content-page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // 대상 페이지 보이기
+                const targetPage = document.querySelector(targetId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
