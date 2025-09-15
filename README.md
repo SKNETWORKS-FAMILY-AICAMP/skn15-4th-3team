@@ -1,7 +1,5 @@
 # 운전자 보험 약관 RAG 챗봇
 
-<img width="892" height="1348" alt="logo2" src="https://github.com/user-attachments/assets/11e8c83f-4ac7-46b7-a982-034fd1fe1255" />
-
 # 팀 소개
 <div align="center">
 <img width="320" height="320" alt="Image" src="https://github.com/user-attachments/assets/34eb158f-413f-4f38-b1e4-6440ea6ae851" />
