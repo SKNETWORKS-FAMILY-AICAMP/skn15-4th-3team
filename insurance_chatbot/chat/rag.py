@@ -18,12 +18,11 @@ PG_CONN = os.getenv("PG_CONN")
 llm = ChatOpenAI(model="gpt-4o-mini", api_key=OPENAI_API_KEY)
 embed = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
 
-
 # --- Retriever 세팅 ---
 def get_retriever():
     vs = PGVector(
         embeddings=embed,
-        collection_name="insurance_docs",  # 실제 collection 이름으로 교체
+        collection_name="hanwha",  # 실제 collection 이름으로 교체
         connection=PG_CONN,
         use_jsonb=True,
     )
@@ -32,6 +31,7 @@ def get_retriever():
         search_kwargs={"k": 4, "fetch_k": 20, "lambda_mult": 0.8},
     )
 
+retriever = get_retriever()  # 모듈 로딩 시 한 번만
 
 # --- Prompt ---
 prompt = ChatPromptTemplate.from_template(
@@ -67,12 +67,10 @@ def format_docs(docs):
 
 # --- 최종 RAG 실행 함수 ---
 def rag_answer(question: str) -> str:
-    retriever = get_retriever()
 
     # 검색
     docs = retriever.get_relevant_documents(question)
     context = format_docs(docs)
-
     # LLM 호출
     chat_input = prompt.format(question=question, context=context)
     answer = llm.invoke([chat_input])  # HumanMessage 없이 문자열로도 가능
