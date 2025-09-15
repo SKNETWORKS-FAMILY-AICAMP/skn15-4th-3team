@@ -97,13 +97,17 @@ AWS
 
 ## ⚙️ 주요 기능
 
+### 💬 채팅 시스템
+### 📊 저장소 분석
+### 🔐 사용자 인증
+### ✅ 세션 관리
+
 
 
 ## 📕 프로젝트 발단
 
 
 
-## ✅ 프로젝트 배경 및 목적
 
 
 
@@ -116,7 +120,7 @@ AWS
 
 
 
-### Vector DB
+
 
 
 <br/>
@@ -125,35 +129,11 @@ AWS
 ### Prompt
 
 
-## Streamlit
-<img width="1916" height="888" alt="Image" src="https://github.com/user-attachments/assets/6ada762b-6be4-45eb-8a1a-1469bcee3b9a" />
 
-
-### 연령별 예시
-
-* 20대
-
-<img width="1142" height="766" alt="Image" src="https://github.com/user-attachments/assets/2e041c33-f606-4f63-ad56-922587400db7" />
-
-* 특정 나이
-
-<img width="1130" height="774" alt="Image" src="https://github.com/user-attachments/assets/8b28d610-76e5-4741-ac4b-737b296c24c9" />
-
-
-### 상황별 예시
-
-* 무단횡단 보행자 사고
-<img width="1156" height="692" alt="Image" src="https://github.com/user-attachments/assets/a6efe2bb-fd34-4f31-90dc-aaad292a4594" />
-<img width="1146" height="714" alt="Image" src="https://github.com/user-attachments/assets/8ac5ec5c-fae2-4fec-918f-9e3e3b92d7d7" />
 
 ## 프로젝트 확장성
 
-* 다양한 보험 상품으로의 적용 가능
-  * 건강보험, 화재보험 등 다양한 약관을 반영하면 챗봇의 목적을 바꿀 수 있게 됩니다.
-* 판례 데이터 반영
-  * 파인 튜닝(Fine-Tuning)을 통한 판례 기반의 추론 강화
-  * 법적 기반을 통한 방향성 확보
-  * 챗봇이 더욱 풍부한 역할 가능
+
 
 # 회고록
 
