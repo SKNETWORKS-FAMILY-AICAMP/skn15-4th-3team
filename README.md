@@ -3,8 +3,6 @@
 
 
 # 팀 소개
-<div align="center">
-<img width="320" height="320" alt="Image" src="https://github.com/user-attachments/assets/34eb158f-413f-4f38-b1e4-6440ea6ae851" />
 
 
 | 이준원    | 권도원    | 기현택       | 유의정     | 이소정  | 한승희    |
