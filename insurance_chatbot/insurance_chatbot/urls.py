@@ -17,9 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from chat import views
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("chat.urls")),
+    path("", include("chat.urls")),  # chat 앱 URL 포함
+    path("login/", views.login_view, name='login'),       # 로그인
+    path("signup/", views.signup_view, name='signup'),    # 회원가입
 ]
