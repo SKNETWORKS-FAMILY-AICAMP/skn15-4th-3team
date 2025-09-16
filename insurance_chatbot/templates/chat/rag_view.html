@@ -106,7 +106,7 @@
                         <span class="llm-model-name">GPT-4o</span>
                     </div>
                     <div class="chat-window" id="chat-window-qa"></div>
-                    <form class="input-container" id="qa-form" method="post" enctype="multipart/form-data">
+                    <form class="input-container" id="qa-form" method="post">
                         {% csrf_token %}
                         <textarea name="question" id="question-input" placeholder="여기에 질문을 입력하세요..." required></textarea>
                         <div class="input-actions">
