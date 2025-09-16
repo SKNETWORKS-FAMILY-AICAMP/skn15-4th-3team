@@ -214,6 +214,15 @@ git clone https://github.com/SKNETWORKS-FAMILY-AICAMP/skn15-4th-3team.git
 cd skn15-4th-3team
 ```
 
+### 3. 환경 변수 설정 (.env)
+
+```env
+POSTGRES_USER=your_user
+POSTGRES_PASSWORD=your_password
+POSTGRES_DB=your_db
+OPENAI_API_KEY=your_api_key
+```
+
 ### 3. 실행
 ```bash
 docker compose up --build
