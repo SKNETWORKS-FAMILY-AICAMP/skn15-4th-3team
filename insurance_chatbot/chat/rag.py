@@ -85,7 +85,7 @@ def rag_answer(question: str, file_path: str = None) -> str:
             # 파일 읽기 실패 시에도 계속 진행하도록 file_content는 ''로 유지됩니다.
 
     # 1. 검색 (Retrieve)
-    docs = retriever.get_relevant_documents(question)
+    docs = retriever.invoke(question)
     context = format_docs(docs)
     
     # 2. 프롬프트 생성 (Prompt)
