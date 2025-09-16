@@ -8,7 +8,6 @@
 | 이준원    | 권도원    | 기현택       | 유의정     | 이소정  | 한승희    |
 |:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 |[@none-jun](https://github.com/none-jun)|[@dowonk120](https://github.com/dowonk120)|[@mathplanet](https://github.com/mathplanet)|[@ryu0ej](https://github.com/Rr-EJ)|[@leesojunghub](https://github.com/leesojunghub)|[@seunghee-han](https://github.com/seunghee-han)|
-| Project Manager | Backend Engineer | Frontend Engineer | Backend Engineer | DevOps Engineer | DevOps Engineer |
 
 
 </div>
