@@ -89,7 +89,6 @@ body, html {
 .main-layout {
     display: flex;
     height: calc(100vh - 64px);
-    position: relative;
 }
 
 /* ------------------------------
@@ -106,11 +105,6 @@ body, html {
     transition: width 0.3s ease, padding 0.3s ease;
     overflow: hidden;
     flex-shrink: 0;
-    position: absolute; /* 추가: 사이드바를 공중에 띄웁니다. */
-    left: 0;
-    top: 0;
-    height: 100%;
-    z-index: 100; /* 추가: 다른 요소들 위에 오도록 설정합니다. */
 }
 .sidebar.collapsed {
     width: 0;
@@ -194,19 +188,14 @@ body, html {
    Content Area & Pages
 ------------------------------ */
 .content-area {
-    flex-grow: 1;
+    flex-grow: 1; /* 남는 공간을 모두 차지 */
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 100%; /* 추가: 콘텐츠 영역이 전체 너비를 차지하도록 합니다. */
-    padding-left: 260px; /* 추가: 열린 사이드바 너비만큼 왼쪽에 여백을 줍니다. */
-    box-sizing: border-box; /* 패딩이 너비에 포함되도록 합니다. */
-    transition: padding-left 0.3s ease; /* 추가: 부드러운 애니메이션 효과 */
+    overflow-y: auto; /* content-page 대신 여기서 스크롤 관리 */
 }
 .content-page {
     display: none;
-    flex-grow: 1;
-    overflow-y: auto;
     padding: 40px;
     box-sizing: border-box;
 }
