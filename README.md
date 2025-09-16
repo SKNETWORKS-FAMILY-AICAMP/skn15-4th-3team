@@ -100,7 +100,6 @@ Project
 |                   | langchain-community           | >=0.2.0                | LangChain 커뮤니티 패키지              |
 |                   | openai                        | >=1.35.0               | OpenAI API 연동                        |
 |                   | tiktoken                      | 최신                   | 토큰화 라이브러리                      |
-|                   | ragas                         | 최신                   | RAG 평가 라이브러리                    |
 | **Vector DB**     | pgvector                      | 최신                   | PostgreSQL 벡터 확장                   |
 | **Utils**         | python-dotenv                 | 최신                   | 환경변수(.env) 관리                    |
 |                   | requests                      | 최신                   | HTTP 요청                              |
