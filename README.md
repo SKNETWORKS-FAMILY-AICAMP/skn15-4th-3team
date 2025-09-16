@@ -114,11 +114,11 @@ Project
 
 RAG 파이프라인
 
-<img width="850" height="701" alt="Image" src="https://github.com/user-attachments/assets/e7645226-f5a0-40ba-a927-7c080657d392" />
+<img width="850" height="541" alt="Image" src="https://github.com/user-attachments/assets/8fda180f-b26c-4fc4-873d-6912fa8e1ced" />
 
 AWS
 
-<img width="850" height="541" alt="Image" src="https://github.com/user-attachments/assets/8fda180f-b26c-4fc4-873d-6912fa8e1ced" />
+<img width="850" height="701" alt="Image" src="https://github.com/user-attachments/assets/e7645226-f5a0-40ba-a927-7c080657d392" />
 
 
 ## ⚙️ 주요 기능
