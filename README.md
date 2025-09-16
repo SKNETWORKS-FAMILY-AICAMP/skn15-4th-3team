@@ -115,7 +115,7 @@ Project
 
 AWS
 
-<img width="850" height="541" alt="Image" src="https://github.com/user-attachments/assets/8fda180f-b26c-4fc4-873d-6912fa8e1ced" />
+<img width="801" height="701" alt="Image" src="https://github.com/user-attachments/assets/1d48b240-573e-405b-9532-8c3e5e6d39b7" />
 
 RAG 파이프라인
 
