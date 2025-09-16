@@ -206,7 +206,17 @@ AWS
 ## 💻 구현 화면
 
 
+* 메인화면
+  
+<img width="1900" height="1004" alt="Image" src="https://github.com/user-attachments/assets/f81634e8-36b6-4ca9-a7e8-a9188d3c810a" />
 
+* 질문 답변(상세)
+* 
+<img width="1900" height="1005" alt="Image" src="https://github.com/user-attachments/assets/4d72a7a8-e4d3-4e3c-a2cf-c5305fe931a0" />
+
+* 정보 추천(간편)
+* 
+<img width="1903" height="997" alt="Image" src="https://github.com/user-attachments/assets/29126778-b1c3-4e27-8860-e265e5452863" />
 
 
 
