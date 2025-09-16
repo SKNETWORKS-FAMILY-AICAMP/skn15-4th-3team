@@ -1,18 +1,51 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>회원가입</title>
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h2>회원가입</h2>
-  <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">가입하기</button>
-  </form>
-  <a href="{% url 'login' %}">로그인으로 돌아가기</a>
+    <div class="login-container"> <div class="login-wrapper">
+            <h1 class="login-title">회원가입</h1>
+            <p class="login-subtitle">새로운 계정을 만들어 서비스를 이용해 보세요.</p>
+            
+            <form method="post" class="login-form">
+                {% csrf_token %}
+                
+                <div class="form-fields">
+                    <p>
+                        <label for="{{ form.username.id_for_label }}">아이디</label>
+                        {{ form.username }}
+                        {{ form.username.errors }}
+                    </p>
+                    <p>
+                        <label for="{{ form.password1.id_for_label }}">비밀번호</label>
+                        {{ form.password1 }}
+                        {{ form.password1.errors }}
+                    </p>
+                    <p>
+                        <label for="{{ form.password2.id_for_label }}">비밀번호 확인</label>
+                        {{ form.password2 }}
+                        {{ form.password2.errors }}
+                    </p>
+
+                    {% if form.non_field_errors %}
+                        <p class="form-error">{{ form.non_field_errors }}</p>
+                    {% endif %}
+                </div>
+                
+                <button type="submit" class="login-button">가입하기</button>
+            </form>
+
+            <div class="signup-link-area">
+                <span>이미 계정이 있으신가요?</span>
+                <a href="{% url 'login' %}">로그인</a> </div>
+        </div>
+    </div>
 </body>
 </html>

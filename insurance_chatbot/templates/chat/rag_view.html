@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>운전자 보험 RAG 챗봇</title>
-    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -23,8 +22,13 @@
                 </div>
             </a>
             <div class="user-actions">
-                <a href="{% url 'login' %}" class="btn-login">로그인</a>
-                <a href="{% url 'signup' %}" class="btn-signup">회원가입</a>
+                {% if user.is_authenticated %}
+                    <span class="welcome-user">{{ user.username }}님, 환영합니다!</span>
+                    <a href="{% url 'logout' %}" class="btn-logout">로그아웃</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn-login">로그인</a>
+                    <a href="{% url 'signup' %}" class="btn-signup">회원가입</a>
+                {% endif %}
             </div>
         </div>
     </header>
@@ -36,32 +40,35 @@
                 <nav>
                     <ul>
                         <li>
-                            <a href="#qa-page" class="nav-link">
+                            <a href="#" id="new-chat-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                <span>새 채팅</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#qa-page">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                                 <span>질문 답변</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#recommend-page" class="nav-link">
+                            <a href="#recommend-page">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
                                 <span>정보 추천</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
-                <h2 class="sidebar-subtitle">최근</h2>
+                <h2 class="sidebar-subtitle">최근 대화</h2>
                 <ul id="recent-chats-list"></ul>
             </div>
         </aside>
         
         <button id="sidebar-toggle-btn" class="sidebar-toggle-btn" aria-label="사이드바 토글">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#007bff" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#007bff"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
         </button>
 
         <main class="content-area">
-            <!-- 홈 페이지 -->
             <div id="home-page" class="content-page active">
                 <div class="home-header">
                     <h2>두 가지 스마트 기능</h2>
@@ -70,97 +77,100 @@
                 <div class="feature-cards-container">
                     <div class="feature-card" data-target="#qa-page">
                         <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg xmlns="http://www.w.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                             </svg>
                         </div>
                         <h3>질문 답변 AI</h3>
-                        <p>RAG 모델을 통해 궁금한 점을 실시간으로 해결하세요. AI가 분석한 최적의 답변을 제공합니다.</p>
+                        <p>RAG 모델을 통해 궁금한 점을 실시간으로 해결하세요</p>
                         <button class="card-button" type="button">→ 질문하기</button>
                     </div>
                     <div class="feature-card" data-target="#recommend-page">
                         <div class="card-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
-                                <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                                <path d="M12 2.69l.346.666L15.346 8l5.654.82-4.1 3.99.968 5.63L12 15.34l-5.868 3.1.968-5.63-4.1-3.99L8.654 8l2.998-4.644L12 2.69z"></path>
+                                <path d="M12 15.34V22"></path>
                             </svg>
                         </div>
                         <h3>맞춤형 추천 시스템</h3>
-                        <p>성별, 나이, 관심사 등 개인 맞춤형 정보를 기반으로 가장 적합한 선택지를 추천받아보세요.</p>
+                        <p>성별, 나이, 관심사 등 개인 맞춤형 정보를 기반으로 추천해드립니다</p>
                         <button class="card-button" type="button">→ 추천받기</button>
                     </div>
                 </div>
             </div>
+        </main>
 
-            <!-- 질문 답변 페이지 -->
             <div id="qa-page" class="content-page">
                 <div class="chat-page-container">
                     <div class="chat-header">
                         <span class="chat-title">질문 답변</span>
                         <span class="llm-model-name">GPT-4o</span>
                     </div>
-
-                    <div class="chat-window" id="chat-window-qa">
-                        <div class="welcome-message">
-                            <p>안녕하세요! 운전자 보험에 대해 궁금한 점을 질문해주세요.</p>
-                        </div>
-                    </div>
-
-                    <form class="input-container" id="qa-form">
+                    <div class="chat-window" id="chat-window-qa"></div>
+                    <form class="input-container" id="qa-form" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <textarea name="question" id="question-input" placeholder="여기에 질문을 입력하세요..." required></textarea>
-                        <button type="submit" id="send-btn">전송</button>
+                        <div class="input-actions">
+                            <label for="file-input" class="file-upload-btn" title="파일 첨부">📎</label>
+                            <input type="file" id="file-input" name="file" style="display: none;">
+                            <button type="submit" id="send-btn">전송</button>
+                        </div>
                     </form>
-                    
-                    <!-- 로딩 표시 -->
+                    <div id="file-name-display"></div>
                     <div id="loading" class="loading" style="display: none;">
                         <div class="loading-spinner"></div>
                         <span>답변을 생성중입니다...</span>
                     </div>
                 </div>
             </div>
-
-            <!-- 추천 페이지 -->
             <div id="recommend-page" class="content-page">
                 <div class="chat-page-container">
                     <div class="chat-header">
                         <span class="chat-title">정보 추천</span>
                         <span class="llm-model-name">GPT-4o</span>
                     </div>
-                    
                     <div class="chat-window" id="chat-window-recommend">
                         <div class="welcome-message">
                             <p>개인 정보를 입력하시면 맞춤형 보험 정보를 추천해드립니다.</p>
                         </div>
                     </div>
-                    
+
                     <div class="recommend-form">
                         <div class="form-group">
                             <label>성별</label>
                             <div class="radio-group">
-                                <label><input type="radio" name="gender" value="남성" checked> 남성</label>
-                                <label><input type="radio" name="gender" value="여성"> 여성</label>
+                                <label><input type="radio" name="gender" value="male" checked> 남성</label>
+                                <label><input type="radio" name="gender" value="female"> 여성</label>
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             <label for="age-input">나이</label>
-                            <input type="number" id="age-input" placeholder="나이를 입력하세요" min="1" max="100" required>
+                            <input type="number" id="age-input" placeholder="만 나이를 입력하세요">
                         </div>
+
                         <div class="form-group">
-                            <label for="car-type-select">관심 차종</label>
+                            <label for="car-type-select">차종</label>
                             <select id="car-type-select">
-                                <option value="소형">소형</option>
-                                <option value="중형">중형</option>
-                                <option value="대형">대형</option>
+                                <option value="compact">경차</option>                         
+                                <option value="small">소형차</option>
+                                <option value="suv">SUV</option>
+                                <option value="medium">중형차</option>
+                                <option value="sports">스포츠카</option>
+                                <option value="electric">전기차</option>
+                                <option value="truck">화물차</option>
                             </select>
                         </div>
+
                         <button type="button" id="recommend-button">추천받기</button>
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
-
+            
+    <script>
+        // 자바스크립트 전역 변수로 URL을 미리 선언해둡니다.
+        const RAG_API_URL = "{% url 'rag_view' %}";
+    </script>
     <!-- JavaScript 파일들 -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="{% static 'js/script.js' %}" defer></script>
@@ -249,26 +259,50 @@
                 chatWindow.scrollTop = chatWindow.scrollHeight;
             }
         });
+            // 페이지 네비게이션 (정리된 최종 버전)
+        document.addEventListener('DOMContentLoaded', function() {
 
-        // 페이지 네비게이션
-        document.querySelectorAll('.nav-link, .feature-card').forEach(element => {
-            element.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href') || this.getAttribute('data-target');
-                
-                // 모든 페이지 숨기기
-                document.querySelectorAll('.content-page').forEach(page => {
-                    page.classList.remove('active');
+            // 1. 클릭할 모든 내비게이션 요소를 한번에 선택합니다.
+            const navElements = document.querySelectorAll('.logo-area-link, .sidebar nav a, .feature-card');
+
+            // 2. 선택된 모든 요소에 대해 클릭 이벤트를 설정합니다.
+            navElements.forEach(element => {
+                element.addEventListener('click', function(e) {
+                    // a 태그의 기본 동작(페이지 이동)을 막습니다.
+                    e.preventDefault(); 
+                    
+                    // 클릭된 요소의 'href' 또는 'data-target' 속성 값(#page-id)을 가져옵니다.
+                    const targetId = this.getAttribute('href') || this.getAttribute('data-target');
+                    
+                    // 속성 값이 없거나 '#'으로 시작하지 않으면 아무것도 하지 않습니다.
+                    if (!targetId || !targetId.startsWith('#')) return;
+
+                    // --- 페이지 전환 로직 ---
+                    // 모든 페이지에서 'active' 클래스를 제거하여 숨깁니다.
+                    document.querySelectorAll('.content-page').forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    
+                    // 목표 ID에 해당하는 페이지만 찾아서 'active' 클래스를 추가해 보여줍니다.
+                    const targetPage = document.querySelector(targetId);
+                    if (targetPage) {
+                        targetPage.classList.add('active');
+                    }
+
+                    // --- 사이드바 활성 링크 표시 로직 ---
+                    // 모든 사이드바 링크에서 'active' 클래스를 제거합니다.
+                    document.querySelectorAll('.sidebar nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+
+                    // 클릭한 요소가 사이드바 내부에 있을 경우에만 'active' 클래스를 추가합니다.
+                    if (this.closest('.sidebar')) {
+                        this.classList.add('active');
+                    }
                 });
-                
-                // 대상 페이지 보이기
-                const targetPage = document.querySelector(targetId);
-                if (targetPage) {
-                    targetPage.classList.add('active');
-                }
             });
         });
+
     </script>
 </body>
 </html>
