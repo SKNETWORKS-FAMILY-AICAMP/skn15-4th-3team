@@ -112,13 +112,13 @@ Project
 
 ## 🛠️ 아키텍쳐
 
-RAG 파이프라인
+AWS
 
 <img width="850" height="541" alt="Image" src="https://github.com/user-attachments/assets/8fda180f-b26c-4fc4-873d-6912fa8e1ced" />
 
-AWS
+RAG 파이프라인
 
-<img width="850" height="701" alt="Image" src="https://github.com/user-attachments/assets/e7645226-f5a0-40ba-a927-7c080657d392" />
+<img width="794" height="701" alt="Image" src="https://github.com/user-attachments/assets/62b8b45f-f339-47e3-94c8-c1107f9e493b" />
 
 
 ## ⚙️ 주요 기능
