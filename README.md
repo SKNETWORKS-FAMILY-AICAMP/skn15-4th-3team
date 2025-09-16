@@ -200,7 +200,7 @@ AWS
    * Nginx + Gunicorn (웹 서버)
    * AWS EC2 (Ubuntu 24.04)
 
-## 🚀 실행 방법 (Getting Started)
+## 🚀 실행 방법 (Getting Started) - 로컬
 
 ### 1. 전제 조건 (Prerequisites)
 이 프로젝트를 실행하려면 아래가 필요합니다:
