@@ -5,14 +5,14 @@ from django.shortcuts import render
 import json
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.conf import settings
 from .rag import rag_answer
 from django.shortcuts import render, redirect
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
-
-def signup_view(request):
-    return render(request, 'chat/signup.html')
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import logout
 
 def rag_view(request):
     # --- GET 요청: 페이지 렌더링 ---
@@ -22,53 +22,87 @@ def rag_view(request):
     # --- POST 요청: JSON / form-data 처리 ---
     elif request.method == "POST":
         question = ""
-        
-        # content_type을 정확하게 확인
+        # 💡 file_content 대신 file_path 변수를 사용합니다.
+        file_path = None 
+
         content_type = request.META.get("CONTENT_TYPE", "").lower()
-        
+
         try:
-            # JSON 요청 처리
             if "application/json" in content_type:
-                data = json.loads(request.body.decode('utf-8')) # 디코딩 추가
+                data = json.loads(request.body.decode('utf-8'))
                 question = data.get("question", "")
-            # form-data 또는 x-www-form-urlencoded 요청 처리
+                # JSON 요청 시 파일 처리는 없으므로 file_path는 None으로 유지
             else:
                 question = request.POST.get("question", "")
-        except json.JSONDecodeError:
-            return JsonResponse({"error": "Invalid JSON format"}, status=400)
+                if request.FILES.get('file'):
+                    uploaded_file = request.FILES['file']
+                    save_path = os.path.join(settings.MEDIA_ROOT, uploaded_file.name)
+                    
+                    with open(save_path, 'wb+') as f:
+                        for chunk in uploaded_file.chunks():
+                            f.write(chunk)
+                    
+                    # 💡 파일 경로를 변수에 저장합니다.
+                    file_path = save_path
+                    # 💡 여기서 파일 내용을 읽을 필요가 없습니다. rag_answer가 처리합니다.
+
         except Exception as e:
             return JsonResponse({"error": f"Request parse error: {str(e)}"}, status=400)
 
-        # 질문이 없을 경우
         if not question:
             return JsonResponse({"error": "No question provided"}, status=400)
 
+        # RAG 호출
         try:
-            answer = rag_answer(question)
+            # ✅ 수정된 부분:
+            # 1. 키워드를 file_path로 변경
+            # 2. 값으로 파일 경로(file_path 변수)를 전달
+            answer = rag_answer(question=question, file_path=file_path)
         except Exception as e:
-            # rag_answer 함수에서 발생하는 특정 에러를 명시적으로 처리하는 것이 더 좋습니다.
-            # 예: return JsonResponse({"error": "RAG process failed: " + str(e)}, status=500)
             return JsonResponse({"error": f"rag_answer error: {str(e)}"}, status=500)
 
         return JsonResponse({"answer": answer})
 
-    # --- 그 외 메서드 ---
-    return JsonResponse({"error": "Invalid request method"}, status=405) # 405 Method Not Allowed가 더 적절
-    
-
+    return JsonResponse({"error": "Invalid request method"}, status=405)
+   
 
 def login_view(request):
-    if request.method == "POST":
-        form = LoginForm(request.POST)
+    if request.method == 'POST':
+        # AuthenticationForm을 상속받은 폼은 request와 data를 함께 전달합니다.
+        form = LoginForm(request=request, data=request.POST)
+        
+        # is_valid()는 아이디/비밀번호가 올바른지 DB와 대조하여 확인합니다.
         if form.is_valid():
-            username = form.cleaned_data["username"]
-            password = form.cleaned_data["password"]
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect("home")  # 로그인 성공 후 이동할 url name
-            else:
-                form.add_error(None, "아이디 또는 비밀번호가 올바르지 않습니다.")
+            # 유효성 검증이 성공하면, 인증된 사용자 객체를 가져옵니다.
+            user = form.get_user()
+            
+            # 🚀 가장 중요한 부분: 사용자에게 입장 도장(세션)을 찍어줍니다.
+            login(request, user)
+            
+            # 로그인 성공 후, 'home'이라는 이름의 URL로 이동시킵니다.
+            return redirect('home')
     else:
+        # GET 요청일 경우, 빈 폼을 생성합니다.
         form = LoginForm()
-    return render(request, "chat/login.html", {"form": form})
+        
+    # 로그인 실패 시(is_valid() 실패) 또는 GET 요청 시,
+    # 에러 메시지가 포함된 폼과 함께 login.html을 다시 보여줍니다.
+    return render(request, 'chat/login.html', {'form': form})
+
+
+def signup_view(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()     # DB에 새 사용자 저장
+            login(request, user)   # 회원가입 직후 로그인 처리
+            return redirect("/")   # 원하는 페이지로 이동 (예: 홈)
+    else:
+        form = UserCreationForm()
+
+    return render(request, "chat/signup.html", {"form": form})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
