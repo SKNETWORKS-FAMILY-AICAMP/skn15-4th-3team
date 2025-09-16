@@ -225,14 +225,14 @@ OPENAI_API_KEY=your_api_key
 
 ### 4. 실행
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 ### 5. 접속 및 종료
 ```
 http://localhost:8000    <-- 접속
 
-docker-compose down      <-- 종료
+docker compose down      <-- 종료
 ```
 
 ## 💻 구현 화면
