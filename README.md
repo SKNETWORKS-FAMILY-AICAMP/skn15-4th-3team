@@ -85,6 +85,32 @@ Project
 
 ```
 
+## 🗂️ Requirements
+
+| 구분              | 패키지                        | 버전/조건              | 설명                                   |
+|-------------------|-------------------------------|------------------------|----------------------------------------|
+| **Django & DB**   | Django                        | >=5.2,<6.0             | 웹 프레임워크                          |
+|                   | psycopg2-binary               | >=2.9                  | PostgreSQL 연동 드라이버               |
+| **REST API & 서버** | djangorestframework           | 최신                   | REST API 구축                          |
+|                   | gunicorn                      | 최신                   | WSGI 서버                              |
+|                   | whitenoise                    | 최신                   | 정적 파일 서빙                         |
+| **AI / RAG**      | transformers                  | >=4.42.0               | 사전학습 모델 (HuggingFace)            |
+|                   | torch                         | >=2.3.0                | 딥러닝 프레임워크 (PyTorch)            |
+|                   | langchain                     | >=0.2.0                | RAG 파이프라인 구성 라이브러리         |
+|                   | langchain-community           | >=0.2.0                | LangChain 커뮤니티 패키지              |
+|                   | openai                        | >=1.35.0               | OpenAI API 연동                        |
+|                   | tiktoken                      | 최신                   | 토큰화 라이브러리                      |
+|                   | ragas                         | 최신                   | RAG 평가 라이브러리                    |
+| **Vector DB**     | pgvector                      | 최신                   | PostgreSQL 벡터 확장                   |
+| **Utils**         | python-dotenv                 | 최신                   | 환경변수(.env) 관리                    |
+|                   | requests                      | 최신                   | HTTP 요청                              |
+|                   | pandas                        | 최신                   | 데이터 처리                            |
+|                   | numpy                         | 최신                   | 수치 계산                              |
+
+
+
+
+
 ## 🛠️ 아키텍쳐
 
 RAG 파이프라인
