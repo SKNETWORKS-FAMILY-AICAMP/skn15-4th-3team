@@ -115,11 +115,11 @@ Project
 
 AWS
 
-<img width="801" height="701" alt="Image" src="https://github.com/user-attachments/assets/1d48b240-573e-405b-9532-8c3e5e6d39b7" />
+<img width="801" height="541" alt="Image" src="https://github.com/user-attachments/assets/8fda180f-b26c-4fc4-873d-6912fa8e1ced" />
 
 RAG 파이프라인
 
-<img width="794" height="701" alt="Image" src="https://github.com/user-attachments/assets/62b8b45f-f339-47e3-94c8-c1107f9e493b" />
+<img width="801" height="701" alt="Image" src="https://github.com/user-attachments/assets/1d48b240-573e-405b-9532-8c3e5e6d39b7" />
 
 
 ## ⚙️ 주요 기능
