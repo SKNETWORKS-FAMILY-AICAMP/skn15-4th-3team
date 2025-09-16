@@ -245,15 +245,13 @@ docker compose down      <-- 종료
 
 * 메인화면
   
-<img width="1900" height="1004" alt="Image" src="https://github.com/user-attachments/assets/f81634e8-36b6-4ca9-a7e8-a9188d3c810a" />
+<img width="1916" height="922" alt="Image" src="https://github.com/user-attachments/assets/b34ab5c0-433b-4e93-a11e-0045a942ac0e" />
 
-* 질문 답변(상세)
 
-<img width="1900" height="1005" alt="Image" src="https://github.com/user-attachments/assets/4d72a7a8-e4d3-4e3c-a2cf-c5305fe931a0" />
+<img width="1919" height="910" alt="Image" src="https://github.com/user-attachments/assets/d23acbdc-31af-4a43-9c84-6921ed206df2" />
 
-* 정보 추천(간편)
 
-<img width="1903" height="997" alt="Image" src="https://github.com/user-attachments/assets/29126778-b1c3-4e27-8860-e265e5452863" />
+<img width="1899" height="910" alt="Image" src="https://github.com/user-attachments/assets/c560c9f4-b11e-4c29-a04f-fc231779a046" />
 
 
 
