@@ -248,9 +248,11 @@ docker compose down      <-- 종료
 
 <img width="1919" height="910" alt="Image" src="https://github.com/user-attachments/assets/d23acbdc-31af-4a43-9c84-6921ed206df2" />
 
+<img width="1919" height="921" alt="Image" src="https://github.com/user-attachments/assets/8486b2d9-1175-406f-a1ea-7ca60ee1ca6e" />
+
 <img width="1899" height="910" alt="Image" src="https://github.com/user-attachments/assets/c560c9f4-b11e-4c29-a04f-fc231779a046" />
 
-<img width="1919" height="921" alt="Image" src="https://github.com/user-attachments/assets/8486b2d9-1175-406f-a1ea-7ca60ee1ca6e" />
+
 
 
 
