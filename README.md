@@ -44,7 +44,7 @@
 
 ## 🗂️ 디렉토리 구조
 ```
-Project
+skn15-4th-3team
 ├── 📂insurance_chatbot/
 │   ├── 📂chat/
 │   │   ├── 📂migrations/
