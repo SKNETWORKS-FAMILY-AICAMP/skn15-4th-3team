@@ -98,6 +98,7 @@ Project
 |                   | torch                         | >=2.3.0                | 딥러닝 프레임워크 (PyTorch)            |
 |                   | langchain                     | >=0.2.0                | RAG 파이프라인 구성 라이브러리         |
 |                   | langchain-community           | >=0.2.0                | LangChain 커뮤니티 패키지              |
+|                   | langchain-postgres            | >=0.0.9                | LangChain 연동 지원 패키지             |
 |                   | openai                        | >=1.35.0               | OpenAI API 연동                        |
 |                   | tiktoken                      | 최신                   | 토큰화 라이브러리                      |
 | **Vector DB**     | pgvector                      | 최신                   | PostgreSQL 벡터 확장                   |
