@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>운전자 보험 RAG 챗봇</title>
-    
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -77,7 +77,7 @@
                 <div class="feature-cards-container">
                     <div class="feature-card" data-target="#qa-page">
                         <div class="card-icon">
-                            <svg xmlns="http://www.w.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                             </svg>
                         </div>
@@ -168,141 +168,9 @@
         </main>
             
     <script>
-        // 자바스크립트 전역 변수로 URL을 미리 선언해둡니다.
         const RAG_API_URL = "{% url 'rag_view' %}";
     </script>
-    <!-- JavaScript 파일들 -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="{% static 'js/script.js' %}" defer></script>
-    
-    <script>
-        // CSRF 토큰 가져오기
-        function getCSRFToken() {
-            return document.querySelector('[name=csrfmiddlewaretoken]').value;
-        }
-
-        // 질문 답변 AJAX 처리
-        document.getElementById('qa-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const questionInput = document.getElementById('question-input');
-            const question = questionInput.value.trim();
-            
-            if (!question) {
-                alert('질문을 입력해주세요.');
-                return;
-            }
-
-            const chatWindow = document.getElementById('chat-window-qa');
-            const loading = document.getElementById('loading');
-            const sendBtn = document.getElementById('send-btn');
-            
-            // 사용자 질문 표시
-            chatWindow.innerHTML += `
-                <div class="message user-message">
-                    <div class="message-content">${question}</div>
-                </div>
-            `;
-            
-            // 로딩 표시
-            loading.style.display = 'flex';
-            sendBtn.disabled = true;
-            questionInput.disabled = true;
-            
-            try {
-                const csrfToken = getCSRFToken() || getCookie('csrftoken');
-                
-                const response = await fetch('{% url "rag_view" %}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': csrfToken
-                    },
-                    body: JSON.stringify({ question: question })
-                });
-
-                const data = await response.json();
-                
-                console.log('Response status:', response.status);
-                console.log('Response data:', data);
-                
-                if (response.ok) {
-                    // 답변 표시 (마크다운 렌더링)
-                    const renderedAnswer = marked.parse(data.answer);
-                    chatWindow.innerHTML += `
-                        <div class="message bot-message">
-                            <div class="message-content">${renderedAnswer}</div>
-                        </div>
-                    `;
-                } else {
-                    chatWindow.innerHTML += `
-                        <div class="message error-message">
-                            <div class="message-content">오류: ${data.error}</div>
-                        </div>
-                    `;
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                chatWindow.innerHTML += `
-                    <div class="message error-message">
-                        <div class="message-content">네트워크 오류: ${error.message}</div>
-                    </div>
-                `;
-            } finally {
-                // 로딩 숨기기
-                loading.style.display = 'none';
-                sendBtn.disabled = false;
-                questionInput.disabled = false;
-                questionInput.value = '';
-                
-                // 스크롤을 맨 아래로
-                chatWindow.scrollTop = chatWindow.scrollHeight;
-            }
-        });
-            // 페이지 네비게이션 (정리된 최종 버전)
-        document.addEventListener('DOMContentLoaded', function() {
-
-            // 1. 클릭할 모든 내비게이션 요소를 한번에 선택합니다.
-            const navElements = document.querySelectorAll('.logo-area-link, .sidebar nav a, .feature-card');
-
-            // 2. 선택된 모든 요소에 대해 클릭 이벤트를 설정합니다.
-            navElements.forEach(element => {
-                element.addEventListener('click', function(e) {
-                    // a 태그의 기본 동작(페이지 이동)을 막습니다.
-                    e.preventDefault(); 
-                    
-                    // 클릭된 요소의 'href' 또는 'data-target' 속성 값(#page-id)을 가져옵니다.
-                    const targetId = this.getAttribute('href') || this.getAttribute('data-target');
-                    
-                    // 속성 값이 없거나 '#'으로 시작하지 않으면 아무것도 하지 않습니다.
-                    if (!targetId || !targetId.startsWith('#')) return;
-
-                    // --- 페이지 전환 로직 ---
-                    // 모든 페이지에서 'active' 클래스를 제거하여 숨깁니다.
-                    document.querySelectorAll('.content-page').forEach(page => {
-                        page.classList.remove('active');
-                    });
-                    
-                    // 목표 ID에 해당하는 페이지만 찾아서 'active' 클래스를 추가해 보여줍니다.
-                    const targetPage = document.querySelector(targetId);
-                    if (targetPage) {
-                        targetPage.classList.add('active');
-                    }
-
-                    // --- 사이드바 활성 링크 표시 로직 ---
-                    // 모든 사이드바 링크에서 'active' 클래스를 제거합니다.
-                    document.querySelectorAll('.sidebar nav a').forEach(link => {
-                        link.classList.remove('active');
-                    });
-
-                    // 클릭한 요소가 사이드바 내부에 있을 경우에만 'active' 클래스를 추가합니다.
-                    if (this.closest('.sidebar')) {
-                        this.classList.add('active');
-                    }
-                });
-            });
-        });
-
-    </script>
 </body>
 </html>

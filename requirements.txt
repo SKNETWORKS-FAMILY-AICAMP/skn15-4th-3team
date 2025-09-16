@@ -15,6 +15,7 @@ langchain-community>=0.2.0
 openai>=1.35.0
 tiktoken
 ragas
+langchain-postgres
 
 # Vector DB
 pgvector   # PostgreSQL에서 벡터 임베딩 지원

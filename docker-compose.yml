@@ -1,8 +1,37 @@
-version: "3.9"
 services:
   web:
     build: .
+    container_name: insurance_web
+    env_file:
+      - .env
+    expose:
+      - "8000"
     ports:
       - "8000:8000"
     volumes:
-      - .:/insurance_chatbot
+      - static_volume:/app/insurance_chatbot/staticfiles
+    environment:
+      DJANGO_SETTINGS_MODULE: insurance_chatbot.settings
+    command: >
+      sh -c "
+      python insurance_chatbot/manage.py collectstatic --noinput &&
+      gunicorn insurance_chatbot.wsgi:application
+      --chdir /app/insurance_chatbot
+      --bind 0.0.0.0:8000
+      --workers 2 --threads 4 --timeout 120
+      "
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+    volumes:
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - static_volume:/static:ro
+    restart: unless-stopped
+
+volumes:
+  static_volume:

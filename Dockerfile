@@ -1,25 +1,35 @@
-# Python 3.12 slim 이미지 사용
-FROM python:3.12-slim
+# Python 런타임
+FROM python:3.11
 
-# 작업 디렉토리 설정
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+# 앱 루트
 WORKDIR /app
 
-# 기본 패키지 설치 (psycopg2, torch 빌드에 필요)
+# 빌드 도구 (psycopg2 빌드 등)
 RUN apt-get update && apt-get install -y \
-    nginx \
-    gcc \
-    g++ \
-    libpq-dev \
-    build-essential \
+    libpq-dev build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# requirements.txt 복사 및 설치
+# 파이썬 의존성
 COPY requirements.txt .
-RUN pip install --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# 소스코드 복사
+# 소스 복사
 COPY . .
 
-# Django 실행 (개발용) — 운영에서는 gunicorn + nginx 권장
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# 비루트 유저 & 권한
+RUN useradd -m appuser && \
+    mkdir -p /app/insurance_chatbot/staticfiles && \
+    chown -R appuser:appuser /app
+USER appuser
+
+EXPOSE 8000
+
+# 정적파일 수집 후 gunicorn 실행
+# manage.py는 /app/insurance_chatbot/manage.py 에 있으므로 절대경로 유지
+CMD sh -c "python insurance_chatbot/manage.py collectstatic --noinput && \
+           gunicorn insurance_chatbot.wsgi:application \
+           --bind 0.0.0.0:8000 --workers 1 --threads 2 --timeout 60 \
+           --access-logfile - --error-logfile -"
