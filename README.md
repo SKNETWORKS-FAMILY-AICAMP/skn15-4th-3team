@@ -200,8 +200,40 @@ AWS
    * Nginx + Gunicorn (웹 서버)
    * AWS EC2 (Ubuntu 24.04)
 
+## 🚀 실행 방법 (Getting Started)
+
+### 1. 전제 조건 (Prerequisites)
+이 프로젝트를 실행하려면 아래가 필요합니다:
+- Git
+- Docker & Docker Compose
+- OpenAI API Key (환경 변수 필요)
 
 
+### 2. 저장소 클론
+```bash
+git clone https://github.com/SKNETWORKS-FAMILY-AICAMP/skn15-4th-3team.git
+cd skn15-4th-3team
+```
+
+### 3. 환경 변수 설정 (.env)
+```env
+POSTGRES_USER=your_user
+POSTGRES_PASSWORD=your_password
+POSTGRES_DB=your_db
+OPENAI_API_KEY=your_api_key
+```
+
+### 4. 실행
+```bash
+docker-compose up --build
+```
+
+### 5. 접속 및 종료
+```
+http://localhost:8000    <-- 접속
+
+docker-compose down      <-- 종료
+```
 
 ## 💻 구현 화면
 
